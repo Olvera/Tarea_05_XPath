@@ -32,12 +32,13 @@
  
   <quiz id="q004">
     <type>checkbox</type>
-    <tittle>Para configurar la presentacion de contenido HTML, usamos:</tittle>
-      <option>XML</option>
-      <option>PHP</option>
-      <option>CSS</option>
-      <option>Ninguna de las anteriores</option>
-    <answer>CSS</answer>
+    <tittle>De las siguientes etiquetas HTML, selecciona las que son etiquetas de cierre</tittle>
+      <option>&lt;head/&gt;</option>
+      <option>&lt;body&gt;</option>
+      <option>&lt;/head&gt;</option>
+      <option>&lt;br/&gt;</option>
+    <answer>2</answer>
+    <answer>3</answer>
   </quiz>
 
   <quiz id="q005">
@@ -66,29 +67,30 @@
 
   <quiz id="q008">
     <type>multiple</type>
-    <tittle>Entre las siguientes aplicaciones, selecciona el/los navegador/es WEB.</tittle>
-      <option>Opera</option>
-      <option>LibreOffice</option>
-      <option>Firefox</option>
-      <option>Gimp 2</option>
+    <tittle>Son dispositivos (hardware) que forman parte de la estructura de una red informática</tittle>
+      <option>Enrutador</option>
+      <option>Pen drive</option>
+      <option>Switch</option>
+      <option>Altavoz bluetooth</option>
     <answer>0</answer>
     <answer>2</answer>
   </quiz>
 
   <quiz id="q009">
     <type>checkbox</type>
-    <tittle>Para configurar la presentacion de contenido HTML, usamos:</tittle>
-      <option>XML</option>
-      <option>PHP</option>
-      <option>CSS</option>
-      <option>Ninguna de las anteriores</option>
-    <answer>CSS</answer>
+    <tittle>Respecto a un ROUTER, selecciona la/s opcion/es correcta/s</tittle>
+      <option>Divide una red LAN en distintos dominios de colision</option>
+      <option>Su funcionamiento es identico al de un switch de capa 2</option>
+      <option>Solo trabajan en redes de fibra óptica de alta velocidad</option>
+      <option>Es el encargado de interconectar redes locales a una red WAN</option>
+    <answer>0</answer>
+    <answer>3</answer>
   </quiz>
 
   <quiz id="q010">
     <type>radio</type>
-    <tittle>El codigo de los archivos JavaScript ha de incorporarse, necesariamente, dentro de 
-      &lt;tbody&gt; o &lt;tittle&gt; en un documento HTML</tittle>
+    <tittle>El codigo JavaScript ha de incorporarse, necesariamente, dentro de 
+      &lt;body&gt; o &lt;tittle&gt; en un documento HTML</tittle>
       <option>Verdadero</option>
       <option>Falso</option>
     <answer>Falso</answer>
