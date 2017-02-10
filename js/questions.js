@@ -23,6 +23,7 @@ function gestionarXml(contXml){
 
  var xmlDoc = contXml.responseXML;
 
+<<<<<<< HEAD
  formElement=document.getElementById("q001").innerHTML = xmlDoc.getElementsByTagName("title")[0].innerHTML;
  select= document.getElementById("in_1");
  var inpt = document.createElement("input");
@@ -30,10 +31,20 @@ function gestionarXml(contXml){
     select.appendChild(inpt);
 
  formElement.onsubmit=function(){
+=======
+ formElement=document.getElementById("q001").innerHTML = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+ select= document.getElementById("in_1");
+ var inpt = document.createElement("input");
+    inpt.type = xmlDoc.getElementsByTagName("type")[0].childNodes[0].nodeValue;
+    select.appendChild(inpt);
+
+/* formElement.onsubmit=function(){
+>>>>>>> origin/master
   var s=formElement.elements[0].value; 
   alert("text: "+s);
   return false; //no envía el formulario, solo mira los valores
  }
+<<<<<<< HEAD
 
 
  formElement=document.getElementById("q002").innerHTML = xmlDoc.getElementsByTagName("title")[1].innerHTML;
@@ -44,10 +55,23 @@ function gestionarXml(contXml){
  for (i = 0; i < nopciones; i++) { 
     var option = document.createElement("option");
     option.text = xmlDoc.getElementById("q002").getElementsByTagName("option")[i].innerHTML;
+=======
+*/
+
+ formElement=document.getElementById("q002").innerHTML = xmlDoc.getElementsByTagName("title")[1].childNodes[0].nodeValue;
+ //RECUERDA document se refiere al documento HTML, xmlDOC es el documento leido XML.
+ select = document.getElementById("in_2");
+ var nopciones = xmlDoc.getElementsByTagName("option").length; //cuantas opciones hay en el XML
+  //Bucle para rellenar todas las opciones de select
+ for (i = 0; i < nopciones; i++) { 
+    var option = document.createElement("option");
+    option.text = xmlDoc.getElementsByTagName("option")[i].childNodes[0].nodeValue;
+>>>>>>> origin/master
     option.value=i+1;
     select.appendChild(option);
  } 
 
+<<<<<<< HEAD
  formElement=document.getElementById("q003").innerHTML = xmlDoc.getElementsByTagName("title")[2].innerHTML;
  //RECUERDA document se refiere al documento HTML, xmlDOC es el documento leido XML.
  select = document.getElementById("in_3");
@@ -56,11 +80,22 @@ function gestionarXml(contXml){
  for (i = 0; i < nopciones; i++) { 
     var option = document.createElement("option");
     option.text = xmlDoc.getElementById("q003").getElementsByTagName("option")[i].innerHTML;
+=======
+ formElement=document.getElementById("q003").innerHTML = xmlDoc.getElementsByTagName("title")[2].childNodes[0].nodeValue;
+ //RECUERDA document se refiere al documento HTML, xmlDOC es el documento leido XML.
+ select = document.getElementById("in_3");
+ var nopciones = xmlDoc.getElementsByTagName("option").length; //cuantas opciones hay en el XML
+  //Bucle para rellenar todas las opciones de select
+ for (i = 0; i < nopciones; i++) { 
+    var option = document.createElement("option");
+    option.text = xmlDoc.getElementsByTagName("option")[i].childNodes[0].nodeValue;
+>>>>>>> origin/master
     option.value=i+1;
     select.appendChild(option);
  } 
 
 
+<<<<<<< HEAD
  formElement=document.getElementById('q004').innerHTML = xmlDoc.getElementsByTagName("title")[3].innerHTML;
  select= document.getElementById("in_4");
  var nopciones = xmlDoc.getElementById("q004").getElementsByTagName("option").length; //cuantas opciones hay en el XML
@@ -85,10 +120,37 @@ function gestionarXml(contXml){
     inpt.value=i+1;
     select.appendChild(inpt);
     select.innerHTML += xmlDoc.getElementById("q005").getElementsByTagName("option")[i].innerHTML;
+=======
+ formElement=document.getElementById('q004').innerHTML = xmlDoc.getElementsByTagName("title")[3].childNodes[0].nodeValue;
+ select= document.getElementById("in_4");
+ var nopciones = xmlDoc.getElementsByTagName("option").length; //cuantas opciones hay en el XML
+ //Bucle para rellenar todas las opciones de select
+ for (i = 0; i < nopciones; i++) { 
+    var inpt = document.createElement("input");
+    inpt.type = xmlDoc.getElementsByTagName("type")[3].childNodes[0].nodeValue;
+    inpt.value=i+1;
+    select.appendChild(inpt);
+    select.innerHTML += xmlDoc.getElementsByTagName("option")[i].childNodes[0].nodeValue;
+    select.innerHTML+="<br/>";
+ } 
+ 
+ formElement=document.getElementById('q005').innerHTML=xmlDoc.getElementsByTagName("title")[4].childNodes[0].nodeValue;
+ select=document.getElementById("in_5");
+
+ var nopciones = xmlDoc.getElementsByTagName("option").length; //cuantas opciones hay en el XML
+ //Bucle para rellenar todas las opciones de select
+ for (i = 0; i < nopciones; i++) { 
+    var inpt = document.createElement("input");
+    inpt.type = xmlDoc.getElementsByTagName("type")[4].childNodes[0].nodeValue;
+    inpt.value=i+1;
+    select.appendChild(inpt);
+    select.innerHTML += xmlDoc.getElementsByTagName("option")[i].childNodes[0].nodeValue;
+>>>>>>> origin/master
     select.innerHTML+="<br/>";
  } 
  
 
+<<<<<<< HEAD
  formElement=document.getElementById("q006").innerHTML = xmlDoc.getElementsByTagName("title")[5].innerHTML;
  select= document.getElementById("in_6");
  var inpt = document.createElement("input");
@@ -103,10 +165,27 @@ function gestionarXml(contXml){
  for (i = 0; i < nopciones; i++) { 
     var option = document.createElement("option");
     option.text = xmlDoc.getElementById("q007").getElementsByTagName("option")[i].innerHTML;
+=======
+ formElement=document.getElementById("q006").innerHTML = xmlDoc.getElementsByTagName("title")[5].childNodes[0].nodeValue;
+ select= document.getElementById("in_6");
+ var inpt = document.createElement("input");
+    inpt.type = xmlDoc.getElementsByTagName("type")[5].childNodes[0].nodeValue;
+    select.appendChild(inpt);
+
+ formElement=document.getElementById("q007").innerHTML = xmlDoc.getElementsByTagName("title")[6].childNodes[0].nodeValue;
+ //RECUERDA document se refiere al documento HTML, xmlDOC es el documento leido XML.
+ select = document.getElementById("in_7");
+ var nopciones = xmlDoc.getElementsByTagName("option").length; //cuantas opciones hay en el XML
+  //Bucle para rellenar todas las opciones de select
+ for (i = 0; i < nopciones; i++) { 
+    var option = document.createElement("option");
+    option.text = xmlDoc.getElementsByTagName("option")[i].childNodes[0].nodeValue;
+>>>>>>> origin/master
     option.value=i+1;
     select.appendChild(option);
  } 
 
+<<<<<<< HEAD
  formElement=document.getElementById("q008").innerHTML = xmlDoc.getElementsByTagName("title")[7].innerHTML;
  //RECUERDA document se refiere al documento HTML, xmlDOC es el documento leido XML.
  select = document.getElementById("in_8");
@@ -115,11 +194,22 @@ function gestionarXml(contXml){
  for (i = 0; i < nopciones; i++) { 
     var option = document.createElement("option");
     option.text = xmlDoc.getElementById("q008").getElementsByTagName("option")[i].innerHTML;
+=======
+ formElement=document.getElementById("q008").innerHTML = xmlDoc.getElementsByTagName("title")[7].childNodes[0].nodeValue;
+ //RECUERDA document se refiere al documento HTML, xmlDOC es el documento leido XML.
+ select = document.getElementById("in_8");
+ var nopciones = xmlDoc.getElementsByTagName("option").length; //cuantas opciones hay en el XML
+  //Bucle para rellenar todas las opciones de select
+ for (i = 0; i < nopciones; i++) { 
+    var option = document.createElement("option");
+    option.text = xmlDoc.getElementsByTagName("option")[i].childNodes[0].nodeValue;
+>>>>>>> origin/master
     option.value=i+1;
     select.appendChild(option);
  } 
 
 
+<<<<<<< HEAD
  formElement=document.getElementById('q009').innerHTML = xmlDoc.getElementsByTagName("title")[8].innerHTML;
  select= document.getElementById("in_9");
  var nopciones = xmlDoc.getElementById("q009").getElementsByTagName("option").length; //cuantas opciones hay en el XML
@@ -130,22 +220,47 @@ function gestionarXml(contXml){
     inpt.value=i+1;
     select.appendChild(inpt);
     select.innerHTML += xmlDoc.getElementById("q009").getElementsByTagName("option")[i].innerHTML;
+=======
+ formElement=document.getElementById('q009').innerHTML = xmlDoc.getElementsByTagName("title")[8].childNodes[0].nodeValue;
+ select= document.getElementById("in_9");
+ var nopciones = xmlDoc.getElementsByTagName("option").length; //cuantas opciones hay en el XML
+ //Bucle para rellenar todas las opciones de select
+ for (i = 0; i < nopciones; i++) { 
+    var inpt = document.createElement("input");
+    inpt.type = xmlDoc.getElementsByTagName("type")[8].childNodes[0].nodeValue;
+    inpt.value=i+1;
+    select.appendChild(inpt);
+    select.innerHTML += xmlDoc.getElementsByTagName("option")[i].childNodes[0].nodeValue;
+>>>>>>> origin/master
     select.innerHTML+="<br/>";
  } 
  
  var nopciones = null;
+<<<<<<< HEAD
  formElement=document.getElementById('q010').innerHTML=xmlDoc.getElementsByTagName("title")[9].innerHTML;
  nopciones = xmlDoc.getElementById("q010").getElementsByTagName("option").length; //cuantas opciones hay en el XML
+=======
+ formElement=document.getElementById('q010').innerHTML=xmlDoc.getElementsByTagName("title")[9].childNodes[0].nodeValue;
+ nopciones = xmlDoc.getElementsByTagName("option").length; //cuantas opciones hay en el XML
+>>>>>>> origin/master
  select=document.getElementById("in_10");
 
  //Bucle para rellenar todas las opciones de select
  for (i = 0; i < nopciones; i++) { 
     var inpt = document.createElement("input");
+<<<<<<< HEAD
     inpt.value=i+1;
     inpt.type = xmlDoc.getElementsByTagName("type")[9].innerHTML;
     select.appendChild(inpt);
     select.innerHTML += xmlDoc.getElementById("q010").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="\t";
+=======
+    inpt.type = xmlDoc.getElementsByTagName("type")[9].childNodes[0].nodeValue;
+    inpt.value=i+1;
+    select.appendChild(inpt);
+    select.innerHTML += xmlDoc.getElementsByTagName("option")[i].childNodes[0].nodeValue;
+    select.innerHTML+="<br/>";
+>>>>>>> origin/master
  } 
  
 }
