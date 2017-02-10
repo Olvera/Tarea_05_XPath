@@ -3,46 +3,49 @@
 
 <questions>
 
+<!--Para formulario con campo de texto.-->
   <quiz id="q001">
     <type>text</type>
-    <tittle>¿Con que tipo de archivo (extensión) validamos la estructura, elementos y tipos de
-      un archivo XML?</tittle>
+    <title>¿Con que tipo de archivo (extensión) validamos la estructura, elementos y tipos de
+      un archivo XML?</title>
     <answer>DTD</answer>
   </quiz>
 
+<!--Para formulario con campo de seleción desplegable.-->
   <quiz id="q002">
     <type>select</type>
-    <tittle>JavaScript es un lenguaje:</tittle>
+    <title>JavaScript es un lenguaje:</title>
       <option>Interpretado, orientado a objetos</option>
       <option>Estructurado de consultas</option> 
       <option>Llenguaje de bajo nivel</option>
     <answer>1</answer>
   </quiz>
-  
+
+<!--Para formulario con campo de selección fijo.-->  
   <quiz id="q003">
     <type>multiple</type>
-    <tittle>Selecciona el/los navegadores WEB</tittle>
+    <title>Selecciona el navegador WEB</title>
       <option>Opera</option>
       <option>LibreOffice</option>
-      <option>Firefox</option>
+      <option>Adobe PhotoShop</option>
       <option>Gimp 2</option>
     <answer>0</answer>
-    <answer>2</answer>
   </quiz>
  
   <quiz id="q004">
     <type>checkbox</type>
-    <tittle>Para configurar la presentacion de contenido HTML, usamos:</tittle>
-      <option>XML</option>
-      <option>PHP</option>
-      <option>CSS</option>
-      <option>Ninguna de las anteriores</option>
-    <answer>CSS</answer>
+    <title>De las siguientes etiquetas HTML, selecciona las que son etiquetas de cierre</title>
+      <option> &lt;head/&gt; </option>
+      <option> &lt;body&gt; </option>
+      <option> &lt;/head&gt; </option>
+      <option> &lt;br/&gt; </option>
+    <answer>2</answer>
+    <answer>3</answer>
   </quiz>
 
   <quiz id="q005">
     <type>radio</type>
-    <tittle>Un documento HTML es un documento estructurado con:</tittle>
+    <title>Un documento HTML es un documento estructurado con:</title>
       <option>Texto plano</option>
       <option>Variables</option>
       <option>Etiquetas</option>
@@ -51,13 +54,13 @@
  
   <quiz id="q006">
     <type>text</type>
-    <tittle>¿Que extensión tienen los archivos Extensible Markup Language?</tittle>
+    <title>¿Que extensión tienen los archivos Extensible Markup Language?</title>
     <answer>xml</answer>
   </quiz>
 
   <quiz id="q007">
     <type>select</type>
-    <tittle>Java es un lenguaje:</tittle>
+    <title>Java es un lenguaje:</title>
       <option>Orientado a objetos</option>
       <option>Estructurado de consultas</option> 
       <option>Llenguaje de bajo nivel</option>
@@ -66,29 +69,29 @@
 
   <quiz id="q008">
     <type>multiple</type>
-    <tittle>Entre las siguientes aplicaciones, selecciona el/los navegador/es WEB.</tittle>
-      <option>Opera</option>
-      <option>LibreOffice</option>
-      <option>Firefox</option>
-      <option>Gimp 2</option>
-    <answer>0</answer>
+    <title>Es un dispositivo (hardware) que forma parte de la infraestructura de una red informática</title>
+      <option>Monitor</option>
+      <option>Pen drive</option>
+      <option>Switch</option>
+      <option>Altavoz bluetooth</option>
     <answer>2</answer>
   </quiz>
 
   <quiz id="q009">
     <type>checkbox</type>
-    <tittle>Para configurar la presentacion de contenido HTML, usamos:</tittle>
-      <option>XML</option>
-      <option>PHP</option>
-      <option>CSS</option>
-      <option>Ninguna de las anteriores</option>
-    <answer>CSS</answer>
+    <title>Respecto a un ROUTER, selecciona la/s opcion/es correcta/s</title>
+      <option>Divide una red LAN en distintos dominios de colision</option>
+      <option>Su funcionamiento es identico al de un switch de capa 2</option>
+      <option>Solo trabajan en redes de fibra óptica de alta velocidad</option>
+      <option>Es el encargado de interconectar redes locales a una red WAN</option>
+    <answer>0</answer>
+    <answer>3</answer>
   </quiz>
 
   <quiz id="q010">
     <type>radio</type>
-    <tittle>El codigo de los archivos JavaScript ha de incorporarse, necesariamente, dentro de 
-      &lt;tbody&gt; o &lt;tittle&gt; en un documento HTML</tittle>
+    <title>El codigo JavaScript ha de incorporarse, necesariamente, dentro de 
+      &lt;body&gt; o &lt;title&gt; en un documento HTML</title>
       <option>Verdadero</option>
       <option>Falso</option>
     <answer>Falso</answer>
