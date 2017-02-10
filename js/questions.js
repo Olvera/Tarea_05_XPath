@@ -18,6 +18,41 @@ window.onload = function(){
    return false;
  }*/
 
+
+//setInterval
+    var cronometro;
+ 
+        function detenerse()
+        {
+            clearInterval(cronometro);
+        }
+     
+        function carga()
+        {
+            contador_s =59;
+            contador_m =14;
+            s = document.getElementById("segundos");
+            m = document.getElementById("minutos");
+
+            cronometro = setInterval(function()
+            {
+              if(contador_s==0)
+              {
+                contador_s=59;
+                contador_m--;
+                m.innerHTML = contador_m;
+              }
+            
+              if(contador_m==0 && contador_s==0)
+              {
+                detenerse();
+              }
+            s.innerHTML = contador_s;
+            contador_s++;
+           } ,1000);
+        }        
+
+
  var xhttp = new XMLHttpRequest();
  xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
