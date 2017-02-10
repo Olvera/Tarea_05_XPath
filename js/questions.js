@@ -7,12 +7,23 @@ var answer=null;
 //al cargar la página... 
 window.onload = function(){
 
+//CORREGIR al apretar el botón
+ /*formElement=document.getElementById('exam');
+ formElement.onsubmit=function(){
+   inicializar();
+   corregirNumber();
+   corregirSelect();
+   corregirCheckbox();
+   presentarNota();   
+   return false;
+ }*/
+
  var xhttp = new XMLHttpRequest();
  xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
    gestionarXml(this);
   };
-}
+ }
   
 xhttp.open("GET", "XML_DTD/questions.xml", true);
 xhttp.send();
@@ -80,6 +91,7 @@ function gestionarXml(contXml){
     var inpt = document.createElement("input");
     inpt.type = xmlDoc.getElementsByTagName("type")[4].innerHTML;
     inpt.value=i+1;
+    inpt.name=inpt.type;
     select.appendChild(inpt);
     select.innerHTML += xmlDoc.getElementById("q005").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
@@ -140,8 +152,9 @@ function gestionarXml(contXml){
  //Bucle para rellenar todas las opciones de select
  for (i = 0; i < nopciones; i++) { 
     var inpt = document.createElement("input");
-    inpt.value=i+1;
     inpt.type = xmlDoc.getElementsByTagName("type")[9].innerHTML;
+    inpt.value=i+1;
+    inpt.name=inpt.type;
     select.appendChild(inpt);
     select.innerHTML += xmlDoc.getElementById("q010").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="\t";
