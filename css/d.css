@@ -4,6 +4,5 @@ main{background:none repeat scroll 0 0 wheat; border: 1px solid; box-shadow: 1px
 div{background-color: teal; font-family: verdana; font-size: 1em; color: yellow; display:block; 
 	width:auto; height:auto; margin: 20px 5px 20px 10px; padding: 5px 5px 20px 20px; 
 	border: 5px solid lightgreen; border-radius: 15px; box-shadow: 5px 5px 10px #000000;}
- #crono{background-color: teal; font-family: verdana; font-size: 1em; color: yellow; display:block; 
-	position: fixed; width:auto; height:auto; margin: 10px 10px 10px 10px; padding: auto; 
+ #crono{position: fixed; margin: 10px 50px; padding: 10px; 
 	border: 5px solid lightgreen; border-radius: 15px; box-shadow: 5px 5px 10px #000000;}
