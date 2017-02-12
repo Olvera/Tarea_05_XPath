@@ -5,10 +5,7 @@ div{background-color: teal; font-family: verdana; font-size: 0.8em; color: yello
 	width:auto; height:auto; margin: 10px 5px; padding: 5px 10px; 
 	border: 2px solid lightgreen; border-radius: 10px; box-shadow: 2px 2px 5px #000000;}
 img{margin: 0 auto; width: 50%;}
-<<<<<<< HEAD
 h3{text-align: center;}
-=======
->>>>>>> origin/master
 #homeDiv{text-align: center;}
 #crono{position: fixed; width:auto; height:auto; margin: 1%; padding: 1%;}
 #start, #notaFinal{display: block; text-align: center; margin: 0 auto;}
