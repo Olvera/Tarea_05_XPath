@@ -5,8 +5,7 @@ div{background-color: teal; font-family: verdana; font-size: 1em; color: yellow;
 	width:auto; height:auto; margin: 20px 10px; padding: 10px 20px; 
 	border: 5px solid lightgreen; border-radius: 15px; box-shadow: 5px 5px 10px #000000;}
 img{display: block; float: right; margin: 0 auto; width: 20%;}
-h3{text-align: center;}
+h3, #homeDiv{text-align: center;}
 #crono{position: fixed; margin: 10px 50px; padding: 10px;}
-#homeDiv{text-align: center;}
-#homeDiv img{float: left; width: 10%;}
+#homeDiv img{float: left; width: 20%;}
 #start, #notaFinal{display: block; text-align: center; margin: 0 auto;}
