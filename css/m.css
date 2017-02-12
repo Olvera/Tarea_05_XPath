@@ -4,4 +4,8 @@ main{background:none repeat scroll 0 0 wheat; border: 1px solid; box-shadow: 1px
 div{background-color: teal; font-family: verdana; font-size: 0.8em; color: yellow; display:block; 
 	width:auto; height:auto; margin: 20px 5px 20px 10px; padding: 5px 5px 20px 20px; 
 	border: 2px solid lightgreen; border-radius: 10px; box-shadow: 2px 2px 5px #000000;}
+img{display: block; float: right; margin: 0 auto; width: 20%;}
+#homeDiv{text-align: center;}
+#homeDiv img{float: left; width: 10%;}
 #crono{position: fixed; width:auto; height:auto; margin: 1%; padding: 1%;}
+#start, #notaFinal{display: block; text-align: center; margin: 0 auto;}
