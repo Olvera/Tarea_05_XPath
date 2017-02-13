@@ -7,8 +7,8 @@ var res_sel_1 = null;
 var res_sel_2 = null;
 var res_chb_1 = [];
 var res_chb_2 = [];
-var res_mul_1 = null;
-var res_mul_2 = null;
+var res_mul_1 = [];
+var res_mul_2 = [];
 var res_rad_1 = null;
 var res_rad_2 = null;
 
@@ -16,15 +16,16 @@ var res_rad_2 = null;
 window.onload = function()
 {
     //CORREGIR al apretar el botón
-    formElement=document.getElementById('exam');
-    formElement.onsubmit=function()
+    formElement=document.getElementById("comp");
+    formElement.onclick=function()
     {
-        inicializar();
-        corregirText();
-        corregirSelect();
-        corregirCheckbox();
-        presentarNota();   
-        return false;
+      inicializar();
+      corregirText1();
+      corregirText2();
+      //corregirSelect();
+      //corregirCheckbox();
+      presentarNota();
+      return false;
     };
 
 
@@ -49,17 +50,18 @@ function gestionarXml(contXml)
 
     //Pregunta tipo 'texto' nº 1.
     formElement=document.getElementById("q001").innerHTML = xmlDoc.getElementsByTagName("title")[0].innerHTML;
-    res_t_1 = parseInt(xmlDoc.getElementsByTagName("answer")[0].innerHTML);//Guardamos respuesta/s correctas para comprobación posterior.
+    res_t_1 = xmlDoc.getElementById("q001").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     select= document.getElementById("in_1");
     var inpt = document.createElement("input");
     var option = document.createElement("option");
     inpt.type = xmlDoc.getElementsByTagName("type")[0].innerHTML;
+    inpt.name = "text1";
     select.appendChild(inpt);
         
 
     //Pregunta tipo 'select' nº 1.
     formElement=document.getElementById("q002").innerHTML = xmlDoc.getElementsByTagName("title")[1].innerHTML;
-    res_sel_1 = parseInt(xmlDoc.getElementsByTagName("answer")[0].innerHTML);//Guardamos respuesta/s correctas para comprobación posterior.
+    res_sel_1 = xmlDoc.getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     select = document.getElementById("in_2");
     var nopciones = xmlDoc.getElementById("q002").getElementsByTagName("option").length;
     for (i = 0; i < nopciones; i++)
@@ -70,10 +72,11 @@ function gestionarXml(contXml)
         select.appendChild(option);
     } 
 
-    //Pregunta tipo 'multiple' nº 1.
+    //Pregunta tipo select 'multiple' nº 1.
     formElement=document.getElementById("q003").innerHTML = xmlDoc.getElementsByTagName("title")[2].innerHTML;
-    res_mul_1 = parseInt(xmlDoc.getElementsByTagName("answer")[0].innerHTML);//Guardamos respuesta/s correctas para comprobación posterior.
+    res_mul_1 = xmlDoc.getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     select = document.getElementById("in_3");
+    select.multiple = true;    
     nopciones = xmlDoc.getElementById("q003").getElementsByTagName("option").length;
     for (i = 0; i < nopciones; i++)
     { 
@@ -105,7 +108,7 @@ function gestionarXml(contXml)
 
     //Pregunta tipo 'radio' nº 1.
     formElement=document.getElementById('q005').innerHTML=xmlDoc.getElementsByTagName("title")[4].innerHTML;
-    res_rad_1 = parseInt(xmlDoc.getElementsByTagName("answer")[0].innerHTML);//Guardamos respuesta/s correctas para comprobación posterior.
+    res_rad_1 = xmlDoc.getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     select=document.getElementById("in_5");
     nopciones = xmlDoc.getElementById("q005").getElementsByTagName("option").length;
     for (i = 0; i < nopciones; i++)
@@ -121,15 +124,16 @@ function gestionarXml(contXml)
 
     //Pregunta tipo 'texto' nº 2.
     formElement=document.getElementById("q006").innerHTML = xmlDoc.getElementsByTagName("title")[5].innerHTML;
-    res_t_2 = parseInt(xmlDoc.getElementsByTagName("answer")[0].innerHTML);//Guardamos respuesta/s correctas para comprobación posterior.
+    res_t_2 = xmlDoc.getElementById("q006").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     select= document.getElementById("in_6");
     inpt = document.createElement("input");
     inpt.type = xmlDoc.getElementsByTagName("type")[5].innerHTML;
+    inpt.name = "text2";
     select.appendChild(inpt);
      
     //Pregunta tipo 'select' nº 2.
     formElement=document.getElementById("q007").innerHTML = xmlDoc.getElementsByTagName("title")[6].innerHTML;
-    res_sel_2 = parseInt(xmlDoc.getElementsByTagName("answer")[0].innerHTML);//Guardamos respuesta/s correctas para comprobación posterior.
+    res_sel_2 = xmlDoc.getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     select = document.getElementById("in_7");
     nopciones = xmlDoc.getElementById("q007").getElementsByTagName("option").length;
     for (i = 0; i < nopciones; i++)
@@ -140,10 +144,11 @@ function gestionarXml(contXml)
         select.appendChild(option);
     } 
 
-    //Pregunta tipo 'multiple' nº 2.
+    //Pregunta tipo select 'multiple' nº 2.
     formElement=document.getElementById("q008").innerHTML = xmlDoc.getElementsByTagName("title")[7].innerHTML;
-    res_sel_2 = parseInt(xmlDoc.getElementsByTagName("answer")[0].innerHTML);//Guardamos respuesta/s correctas para comprobación posterior.
+    res_sel_2 = xmlDoc.getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     select = document.getElementById("in_8");
+    select.multiple = true;    
     nopciones = xmlDoc.getElementById("q008").getElementsByTagName("option").length;
     for (i = 0; i < nopciones; i++)
     { 
@@ -175,7 +180,7 @@ function gestionarXml(contXml)
  
     //Pregunta tipo 'radio' nº 2.
     formElement=document.getElementById('q010').innerHTML=xmlDoc.getElementsByTagName("title")[9].innerHTML;
-    res_rad_2 = parseInt(xmlDoc.getElementsByTagName("answer")[0].innerHTML);//Guardamos respuesta/s correctas para comprobación posterior.
+    res_rad_2 = xmlDoc.getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     nopciones = xmlDoc.getElementById("q010").getElementsByTagName("option").length;
     select=document.getElementById("in_10");
     for (i = 0; i < nopciones; i++)
@@ -194,15 +199,15 @@ function gestionarXml(contXml)
 //implementación de la corrección
 function corregirText1()
 {
-    var s=mainElement.elements[0].value;     
-    if (s==res_t_1)
+    var s = document.getElementById("in_1").elements["text1"].value;
+    if (s.toUpperCase()==res_t_1.toUpperCase())
     {
         darRespuestaHtml("P1: Correcto!");
         nota +=1;
     }
     else
     {
-        if (s!=res_t_1)
+        if (s.toUpperCase()==res_t_1.toUpperCase())
         {
             darRespuestaHtml("P1: Respuesta erronea");
         }
@@ -212,15 +217,15 @@ function corregirText1()
 
 function corregirText2()
 {
-    var s=mainElement.elements[5].value;     
-    if (s==res_t_2)
+    var s = document.getElementById("in_6").elements["text2"].value;
+    if (s.toUpperCase()==res_t_2.toUpperCase())
     {
         darRespuestaHtml("P6: Correcto!");
         nota +=1;
     }
     else
     {
-        if (s!=res_t_2)
+        if (s.toUpperCase()!=res_t_2.toUpperCase())
         {
             darRespuestaHtml("P6: Respuesta erronea");
         }
@@ -231,10 +236,11 @@ function corregirText2()
 //Gestionar la presentación de las respuestas
 function darRespuestaHtml(r)
 {
-    var p = document.createElement("p");
-    var node = document.createTextNode(r);
+    var p = document.getElementById("comprobacion");
+    var node = document.createElement("p");
+    node.innerHTML = (r);
     p.appendChild(node);
-    document.getElementById('notaFinal').appendChild(p);
+    //document.getElementById("comp").appendChild(p);
 }
 
 function presentarNota()
@@ -244,7 +250,7 @@ function presentarNota()
 
 function inicializar()
 {
-    document.getElementById('notaFinal').innerHTML = "";
+    document.getElementById("comp").innerHTML = "";
     nota=0.0;
 }
 
