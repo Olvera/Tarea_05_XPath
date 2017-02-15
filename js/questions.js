@@ -23,7 +23,7 @@ window.onload = function()
       corregirText1();
       corregirSelect1();
       //corregirMulti1();
-      //corregirCheckbox1();
+      corregirCheckbox1();
       corregirRadio1();
       corregirText2();
       corregirSelect2();
@@ -103,6 +103,7 @@ function gestionarXml(contXml)
     { 
         inpt = document.createElement("input");
         inpt.type = xmlDoc.getElementsByTagName("type")[3].innerHTML;
+        inpt.name = inpt.type;
         inpt.value=i+1;
         select.appendChild(inpt);
         select.innerHTML += xmlDoc.getElementById("q004").getElementsByTagName("option")[i].innerHTML;
@@ -175,6 +176,7 @@ function gestionarXml(contXml)
     { 
         inpt = document.createElement("input");
         inpt.type = xmlDoc.getElementsByTagName("type")[8].innerHTML;
+        inpt.name = inpt.type;
         inpt.value=i+1;
         select.appendChild(inpt);
         select.innerHTML += xmlDoc.getElementById("q009").getElementsByTagName("option")[i].innerHTML;
@@ -329,6 +331,42 @@ function corregirRadio2()
     else darRespuestaHtml("P10: <b>Respuesta incorrecta</b>");
 }
 
+function corregirCheckbox1()
+{
+  var r=[];
+  var u=0;
+  var v=[];
+  var opt = document.getElementById("in_4").elements["checkbox"];
+
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].checked) 
+      {
+        v[i]=false;
+        for (j = 0; j < res_chb_1.length; j++) 
+        {
+          if(i==res_chb_1[j]) v[i]=true;
+        }
+      }
+
+    for (i = 0; i < opt.length; i++) 
+    {   
+      if (opt[i].checked) 
+      {
+        if (v[i]) 
+        {
+          nota +=1.0/res_chb_1.length;  //dividido por el número de respuestas correctas   
+          darRespuestaHtml("Nº 4: <b>Correcto!</b>");    
+        } 
+        else 
+        {
+          nota -=1.0/res_chb_1.length;  //dividido por el número de respuestas correctas   
+          darRespuestaHtml("Nº 4: <b>Respuesta incorrecta</b>");
+        }   
+      }
+    }
+  }
+}
 
 //Gestionar la presentación de las respuestas
 function darRespuestaHtml(r)

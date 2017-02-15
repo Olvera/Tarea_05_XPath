@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE questions SYSTEM "cuestionario.dtd">
-<!--<questions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:noNamespaceSchemaLocation="questions.xsd">-->
-
-<questions>
+<!--<!DOCTYPE questions SYSTEM "questions.dtd">-->
+<questions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:noNamespaceSchemaLocation="questions.xsd">
 
 <!--Para formulario con campo de texto.-->
   <quiz id="q001">
     <type>text</type>
-    <title>¿Con que tipo de archivo (extensión) validamos la estructura, elementos y tipos de
-      un archivo XML?</title>
+    <title>¿Con que tipo de archivo (extensión) validamos la estructura, elementos y tipos de un archivo XML?</title>
     <answer>DTD</answer>
   </quiz>
 

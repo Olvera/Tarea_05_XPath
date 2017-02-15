@@ -1,67 +1,36 @@
-<!--Desa el següent fitxer xml com a preguntas.xml-->
-
 <?xml version="1.0" encoding="UTF-8"?>
-
-<questions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:noNamespaceSchemaLocation="questions.xsd">
-<quiz id="q001">
-<type>number</type>
-<title>Adivina el número secreto... </title>
-<answer>23</answer>
-</question>
-<question id="profe_002">
-<type>select</type>
-<title>HTML son las iniciales de...</title>
-<option>Hyper Text Transfer Protocol</option>
-<option>File Transfer Protocol</option>
-<option>Hypertext markup language</option>
-<answer>2</answer>
-</question>
-<question id="profe_003">
-<type>checkbox</type>
-<title>Marca las frutas</title>
-<option>naranja</option>
-<option>verde</option>
-<option>fresa</option>
-<option>violeta</option>
-<answer>0</answer>
-<answer>2</answer>
-</question>
-
-</questions>
-
-
-<!--Desa el següent fitxer com a preguntas.xsd-->
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<xs:element name="questions">
-<xs:complexType>
-<xs:sequence>
-<xs:element name="question" maxOccurs="10" minOccurs="0">
-<xs:complexType>
-<xs:sequence>
-<xs:element name="type">
-<xs:simpleType>
-<xs:restriction base="xs:string">
-<xs:enumeration value="number"/>
-<xs:enumeration value="select"/>
-<xs:enumeration value="checkbox"/>
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element type="xs:string" name="title"/>
-<xs:element type="xs:string" name="option" maxOccurs="unbounded" minOccurs="0"/>
-<xs:element type="xs:integer" name="answer" maxOccurs="unbounded" minOccurs="1"/>
-</xs:sequence>
-<xs:attribute type="xs:string" name="id" use="required"/>
-</xs:complexType>
-</xs:element>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="questions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="quiz"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="quiz">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="type"/>
+        <xs:element ref="title"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="option"/>
+        <xs:element maxOccurs="unbounded" ref="answer"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="type" type="xs:NCName"/>
+  <xs:element name="title">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="b"/>
+        <xs:element ref="br"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="b" type="xs:string"/>
+  <xs:element name="br">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="option" type="xs:string"/>
+  <xs:element name="answer" type="xs:NMTOKEN"/>
 </xs:schema>
-
-
-<!--Ves a http://www.xmlvalidation.com, marca "Validate against external XML schema", selecciona preguntas.xml, dali a "Validate", selecciona "preguntas.xsd" dali a "Continue Validation".-->
