@@ -67,7 +67,7 @@
 <!--Idem que 'q002'-->
   <quiz id="q007">
     <type>select</type>
-    <title>Java es un lenguaje:</title>
+    <title>Java es un lenguaje de programación</title>
       <option>Orientado a objetos</option>
       <option>Estructurado de consultas</option> 
       <option>Llenguaje de bajo nivel</option>
@@ -106,7 +106,7 @@
       &lt;body&gt; o &lt;title&gt; en un documento HTML</title>
       <option>Verdadero</option>
       <option>Falso</option>
-    <answer>Falso</answer>
+    <answer>1</answer>
   </quiz>
 
 </questions>
