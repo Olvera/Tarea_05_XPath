@@ -27,7 +27,7 @@ window.onload = function()
       corregirRadio1();
       corregirText2();
       corregirSelect2();
-      //corregirCheckbox2();
+      corregirCheckbox2();
       corregirRadio2();
       presentarNota();
       return false;
@@ -170,6 +170,7 @@ function gestionarXml(contXml)
 
     //Pregunta tipo 'checkbox' nº 2.
     formElement=document.getElementById('q009').innerHTML = xmlDoc.getElementsByTagName("title")[8].innerHTML;
+    res_rad_2 = xmlDoc.getElementById("q009").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
     select= document.getElementById("in_9");
     nopciones = xmlDoc.getElementById("q009").getElementsByTagName("option").length;
     for (i = 0; i < nopciones; i++)
@@ -213,16 +214,16 @@ function corregirText1()
     var s = document.getElementById("in_1").elements["text1"].value;
     if (s.toUpperCase()==res_t_1.toUpperCase())
     {
-        darRespuestaHtml("P1: <b>Correcto!</b>");
+        darRespuestaHtml("Nº 1: <b>Correcto!</b>");
         nota +=1;
     }
     else
     {
         if (s.toUpperCase()==res_t_1.toUpperCase())
         {
-            darRespuestaHtml("P1: <b>Respuesta incorrecta</b>");
+            darRespuestaHtml("Nº 1: <b>Respuesta incorrecta</b>");
         }
-        else darRespuestaHtml("P1: <b>Respuesta incorrecta</b>");
+        else darRespuestaHtml("Nº 1: <b>Respuesta incorrecta</b>");
     }
 }
 
@@ -231,16 +232,16 @@ function corregirText2()
     var s = document.getElementById("in_6").elements["text2"].value;
     if (s.toUpperCase()==res_t_2.toUpperCase())
     {
-        darRespuestaHtml("P6: <b>Correcto!</b>");
+        darRespuestaHtml("Nº 6: <b>Correcto!</b>");
         nota +=1;
     }
     else
     {
         if (s.toUpperCase()!=res_t_2.toUpperCase())
         {
-            darRespuestaHtml("P6: <b>Respuesta incorrecta</b>");
+            darRespuestaHtml("Nº 6: <b>Respuesta incorrecta</b>");
         }
-        else darRespuestaHtml("P6: <b>Respuesta incorrecta</b>");
+        else darRespuestaHtml("Nº 6: <b>Respuesta incorrecta</b>");
     }
 }
 
@@ -249,10 +250,10 @@ function corregirSelect1()
   var sel = document.getElementById("in_2");  
   if (sel.selectedIndex==res_sel_1)
   {
-    darRespuestaHtml("P2: <b>Correcto!</b>");
+    darRespuestaHtml("Nº 2: <b>Correcto!</b>");
     nota +=1;
   }
-  else darRespuestaHtml("P2: <b>Incorrecto</b>");
+  else darRespuestaHtml("Nº 2: <b>Incorrecto</b>");
 }
 
 function corregirSelect2()
@@ -260,10 +261,10 @@ function corregirSelect2()
   var sel = document.getElementById("in_7");  
   if (sel.selectedIndex==res_sel_2)
   {
-    darRespuestaHtml("P7: <b>Correcto!</b>");
+    darRespuestaHtml("Nº 7: <b>Correcto!</b>");
     nota +=1;
   }
-  else darRespuestaHtml("P7: <b>Incorrecto</b>");
+  else darRespuestaHtml("Nº 7: <b>Incorrecto</b>");
 }
 
 /*function corregirMulti1()
@@ -282,90 +283,95 @@ function corregirSelect2()
             darRespuestaHtml("P3: <b>Correcto!</b>");
             nota +=1;
           }
-          else darRespuestaHtml("P3: <b>Incorrecto</b>");
+          else darRespuestaHtml("Nº 3: <b>Incorrecto</b>");
         }
-        else darRespuestaHtml("P3: <b>Incorrecto</b>");
+        else darRespuestaHtml("Nº 3: <b>Incorrecto</b>");
       }
   }
 }  */
 
-function corregirRadio1()
-{
-  var r=null;
-  var u=0;
-  var opt = document.getElementById("in_5").elements["radio"];
-
-  for (i = 0; i < opt.length; i++)
-  {
-    if(!opt[i].checked) { u++; } else r=i;
-  }
-
-  if(u==opt.length) { darRespuestaHtml("P5: <b>Sin selección</b>"); }
-
-  if(r==res_rad_1)
-    {
-      darRespuestaHtml("P5: <b>Correcto!</b>");
-      nota +=1; 
-    }
-    else darRespuestaHtml("P5: <b>Respuesta incorrecta</b>");
-}
-
-function corregirRadio2()
-{
-  var r=null;
-  var u=0;
-  var opt = document.getElementById("in_10").elements["radio"];
-
-  for (i = 0; i < opt.length; i++)
-  {
-    if(!opt[i].checked) { u++; } else r=i;
-  }
-
-  if(u==opt.length) { darRespuestaHtml("P10: <b>Sin selección</b>"); }
-
-  if(r==res_rad_2)
-    {
-      darRespuestaHtml("P10: <b>Correcto!</b>");
-      nota +=1; 
-    }
-    else darRespuestaHtml("P10: <b>Respuesta incorrecta</b>");
-}
-
 function corregirCheckbox1()
 {
-  var r=[];
-  var u=0;
   var v=[];
+  var corr=0;
   var opt = document.getElementById("in_4").elements["checkbox"];
 
   for (i = 0; i < opt.length; i++)
   {
     if(opt[i].checked) 
+    {
+      v[i]=false;
+      for (j = 0; j < res_chb_1.length; j++) 
       {
-        v[i]=false;
-        for (j = 0; j < res_chb_1.length; j++) 
-        {
-          if(i==res_chb_1[j]) v[i]=true;
-        }
-      }
-
-    for (i = 0; i < opt.length; i++) 
-    {   
-      if (opt[i].checked) 
-      {
-        if (v[i]) 
-        {
-          nota +=1.0/res_chb_1.length;  //dividido por el número de respuestas correctas   
-          darRespuestaHtml("Nº 4: <b>Correcto!</b>");    
-        } 
-        else 
-        {
-          nota -=1.0/res_chb_1.length;  //dividido por el número de respuestas correctas   
-          darRespuestaHtml("Nº 4: <b>Respuesta incorrecta</b>");
-        }   
+        if(i==res_chb_1[j]) v[i]=true;
       }
     }
   }
+
+  for (i = 0; i < opt.length; i++) 
+  {   
+    if (opt[i].checked) 
+    {
+      if (v[i]) {nota +=1.0/res_chb_1.length; corr++;} //dividido por el número de respuestas correctas   
+      else {nota -=1.0/res_chb_1.length; corr--;} //dividido por el número de respuestas correctas
+    }
+  };
+  if (corr==res_chb_1.length) {darRespuestaHtml("Nº 4: <b>Correcto!</b>");}
+  else darRespuestaHtml("Nº 4: <b>Respuesta incorrecta</b>");
+}
+
+function corregirCheckbox2()
+{
+  var v=[];
+  var corr=0;
+  var opt = document.getElementById("in_9").elements["checkbox"];
+
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].checked) 
+    {
+      v[i]=false;
+      for (j = 0; j < res_chb_2.length; j++) 
+      {
+        if(i==res_chb_2[j]) v[i]=true;
+      }
+    }
+  }
+
+  for (i = 0; i < opt.length; i++) 
+  {   
+    if (opt[i].checked) 
+    {
+      if (v[i]) {nota +=1.0/res_chb_2.length; corr++;} //dividido por el número de respuestas correctas   
+      else {nota -=1.0/res_chb_2.length; corr--;} //dividido por el número de respuestas correctas
+    }
+  };
+  if (corr==res_chb_2.length) {darRespuestaHtml("Nº 9: <b>Correcto!</b>");}
+  else darRespuestaHtml("Nº 9: <b>Respuesta incorrecta</b>");
+}
+
+function corregirRadio1()
+{
+  var r=null;
+  var opt = document.getElementById("in_5").elements["radio"];
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].checked) {r=i;}
+  }
+  if(r==res_rad_1) {darRespuestaHtml("Nº 5: <b>Correcto!</b>"); nota +=1;}
+  else darRespuestaHtml("Nº 5: <b>Respuesta incorrecta</b>");
+}
+
+function corregirRadio2()
+{
+  var r=null;
+  var opt = document.getElementById("in_10").elements["radio"];
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].checked) { r=i };
+  }
+  if(r==res_rad_2) { darRespuestaHtml("Nº 10: <b>Correcto!</b>"); nota +=1; }
+  else darRespuestaHtml("Nº 10: <b>Respuesta incorrecta</b>");
 }
 
 //Gestionar la presentación de las respuestas
