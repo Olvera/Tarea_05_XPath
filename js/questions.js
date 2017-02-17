@@ -17,16 +17,17 @@ window.onload = function()
 {
     //CORREGIR al apretar el botón
     formElement=document.getElementById("comp");
-    formElement.onclick=function()
+    formElement.onclick=function corrExam()
     {
       inicializar();
       corregirText1();
       corregirSelect1();
-      //corregirMulti1();
+      corregirMulti1();
       corregirCheckbox1();
       corregirRadio1();
       corregirText2();
       corregirSelect2();
+      corregirMulti2();
       corregirCheckbox2();
       corregirRadio2();
       presentarNota();
@@ -47,8 +48,7 @@ window.onload = function()
     xhttp.open("GET", "XML_DTD/questions.xml", true);
     xhttp.send();
 };
-
-
+//Rellenamos la página con el contenido de esta.
 function gestionarXml(contXml)
 {
     var xmlDoc = contXml.responseXML;
@@ -110,7 +110,7 @@ function gestionarXml(contXml)
         select.innerHTML+="<br/>";
     }
     //Guardamos respuesta/s correctas para comprobación posterior.
-    var nres = xmlDoc.getElementById("q004").getElementsByTagName('answer').length;
+    nres = xmlDoc.getElementById("q004").getElementsByTagName('answer').length;
     for (i = 0; i < nres; i++)
     { 
         res_chb_1[i]=xmlDoc.getElementById("q004").getElementsByTagName("answer")[i].innerHTML;
@@ -156,7 +156,10 @@ function gestionarXml(contXml)
 
     //Pregunta tipo select 'multiple' nº 2.
     formElement=document.getElementById("q008").innerHTML = xmlDoc.getElementsByTagName("title")[7].innerHTML;
-    res_mul_2 = xmlDoc.getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
+    for (i = 0; i < nres; i++)
+    {
+      res_mul_2[i] = xmlDoc.getElementById("q008").getElementsByTagName("answer")[i].innerHTML;
+    }
     select = document.getElementById("in_8");
     select.multiple = true;    
     nopciones = xmlDoc.getElementById("q008").getElementsByTagName("option").length;
@@ -206,9 +209,7 @@ function gestionarXml(contXml)
         select.innerHTML+="\t";
     }
 }
-
-
-//implementación de la corrección
+//implementación de la corrección de cada pregunta.
 function corregirText1()
 {
     var s = document.getElementById("in_1").elements["text1"].value;
@@ -223,7 +224,7 @@ function corregirText1()
         {
             darRespuestaHtml("Nº 1: <b>Respuesta incorrecta</b>");
         }
-        else darRespuestaHtml("Nº 1: <b>Respuesta incorrecta</b>");
+        else {darRespuestaHtml("Nº 1: <b>Respuesta incorrecta</b>");}
     }
 }
 
@@ -241,7 +242,7 @@ function corregirText2()
         {
             darRespuestaHtml("Nº 6: <b>Respuesta incorrecta</b>");
         }
-        else darRespuestaHtml("Nº 6: <b>Respuesta incorrecta</b>");
+        else {darRespuestaHtml("Nº 6: <b>Respuesta incorrecta</b>");}
     }
 }
 
@@ -253,7 +254,7 @@ function corregirSelect1()
     darRespuestaHtml("Nº 2: <b>Correcto!</b>");
     nota +=1;
   }
-  else darRespuestaHtml("Nº 2: <b>Incorrecto</b>");
+  else {darRespuestaHtml("Nº 2: <b>Incorrecto</b>");}
 }
 
 function corregirSelect2()
@@ -264,31 +265,66 @@ function corregirSelect2()
     darRespuestaHtml("Nº 7: <b>Correcto!</b>");
     nota +=1;
   }
-  else darRespuestaHtml("Nº 7: <b>Incorrecto</b>");
+  else {darRespuestaHtml("Nº 7: <b>Incorrecto</b>");}
 }
 
-/*function corregirMulti1()
+function corregirMulti1()
 {
-  var sel = document.getElementById("in_3");
-  var n_opc = sel.getElementsByTagName("option").length;
-  var n_answ = xmlDoc.getElementById("q003").getElementsByTagName("answer").length;
-  for (i = 0; i < n_opc; i++)
+  var v=[];
+  var corr=0;
+  var opt = document.getElementById("in_3").getElementsByTagName("option");
+
+  for (i = 0; i < opt.length; i++)
   {
-    for (z = 0; z < n_answ; z++)
+    if(opt[i].selected) 
+    {
+      v[i]=false;
+      for (j = 0; j < res_mul_1.length; j++) 
       {
-        if (sel.("option")[i]==sel.selectedIndex)
-        {
-          if (sel.("option")[i].value==sel_mul_1[z].value)
-          {
-            darRespuestaHtml("P3: <b>Correcto!</b>");
-            nota +=1;
-          }
-          else darRespuestaHtml("Nº 3: <b>Incorrecto</b>");
-        }
-        else darRespuestaHtml("Nº 3: <b>Incorrecto</b>");
+        if(i==res_chb_2[j]) {v[i]=true;}
       }
+    }
   }
-}  */
+  for (i = 0; i < opt.length; i++) 
+  {   
+    if (opt[i].selected) 
+    {
+      if (v[i]) {nota +=1.0/res_mul_1.length; corr++;} //dividido por el número de respuestas correctas   
+      else {nota -=1.0/res_mul_1.length; corr--;} //dividido por el número de respuestas correctas
+    }
+  }
+  if (corr==res_mul_1.length) {darRespuestaHtml("Nº 3: <b>Correcto!</b>");}
+  else {darRespuestaHtml("Nº 3: <b>Respuesta incorrecta</b>");}
+}
+
+function corregirMulti2()
+{
+  var v=[];
+  var corr=0;
+  var opt = document.getElementById("in_8").getElementsByTagName("option");
+
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].selected) 
+    {
+      v[i]=false;
+      for (j = 0; j < res_mul_2.length; j++) 
+      {
+        if(i==res_mul_2[j]) {v[i]=true;}
+      }
+    }
+  }
+  for (i = 0; i < opt.length; i++) 
+  {   
+    if (opt[i].selected) 
+    {
+      if (v[i]) {nota +=1.0/res_mul_2.length; corr++;} //dividido por el número de respuestas correctas   
+      else {nota -=1.0/res_mul_2.length; corr--;} //dividido por el número de respuestas correctas
+    }
+  }
+  if (corr==res_mul_2.length) {darRespuestaHtml("Nº 8: <b>Correcto!</b>");}
+  else {darRespuestaHtml("Nº 8: <b>Respuesta incorrecta</b>");}
+}
 
 function corregirCheckbox1()
 {
@@ -303,7 +339,7 @@ function corregirCheckbox1()
       v[i]=false;
       for (j = 0; j < res_chb_1.length; j++) 
       {
-        if(i==res_chb_1[j]) v[i]=true;
+        if(i==res_chb_1[j]) {v[i]=true;}
       }
     }
   }
@@ -315,9 +351,9 @@ function corregirCheckbox1()
       if (v[i]) {nota +=1.0/res_chb_1.length; corr++;} //dividido por el número de respuestas correctas   
       else {nota -=1.0/res_chb_1.length; corr--;} //dividido por el número de respuestas correctas
     }
-  };
+  }
   if (corr==res_chb_1.length) {darRespuestaHtml("Nº 4: <b>Correcto!</b>");}
-  else darRespuestaHtml("Nº 4: <b>Respuesta incorrecta</b>");
+  else {darRespuestaHtml("Nº 4: <b>Respuesta incorrecta</b>");}
 }
 
 function corregirCheckbox2()
@@ -333,7 +369,7 @@ function corregirCheckbox2()
       v[i]=false;
       for (j = 0; j < res_chb_2.length; j++) 
       {
-        if(i==res_chb_2[j]) v[i]=true;
+        if(i==res_chb_2[j]) {v[i]=true;}
       }
     }
   }
@@ -345,9 +381,9 @@ function corregirCheckbox2()
       if (v[i]) {nota +=1.0/res_chb_2.length; corr++;} //dividido por el número de respuestas correctas   
       else {nota -=1.0/res_chb_2.length; corr--;} //dividido por el número de respuestas correctas
     }
-  };
+  }
   if (corr==res_chb_2.length) {darRespuestaHtml("Nº 9: <b>Correcto!</b>");}
-  else darRespuestaHtml("Nº 9: <b>Respuesta incorrecta</b>");
+  else {darRespuestaHtml("Nº 9: <b>Respuesta incorrecta</b>");}
 }
 
 function corregirRadio1()
@@ -359,7 +395,7 @@ function corregirRadio1()
     if(opt[i].checked) {r=i;}
   }
   if(r==res_rad_1) {darRespuestaHtml("Nº 5: <b>Correcto!</b>"); nota +=1;}
-  else darRespuestaHtml("Nº 5: <b>Respuesta incorrecta</b>");
+  else {darRespuestaHtml("Nº 5: <b>Respuesta incorrecta</b>");}
 }
 
 function corregirRadio2()
@@ -368,72 +404,74 @@ function corregirRadio2()
   var opt = document.getElementById("in_10").elements["radio"];
   for (i = 0; i < opt.length; i++)
   {
-    if(opt[i].checked) { r=i };
+    if(opt[i].checked) { r=i; }
   }
   if(r==res_rad_2) { darRespuestaHtml("Nº 10: <b>Correcto!</b>"); nota +=1; }
-  else darRespuestaHtml("Nº 10: <b>Respuesta incorrecta</b>");
+  else {darRespuestaHtml("Nº 10: <b>Respuesta incorrecta</b>");}
 }
-
-//Gestionar la presentación de las respuestas
+//Gestionar la presentación de las respuestas.
 function darRespuestaHtml(r)
 {
-    var p = document.getElementById("comprobacion");
-    var node = document.createElement("p");
-    node.innerHTML = (r);
-    p.appendChild(node);
+  var p = document.getElementById("comprobacion");
+  var node = document.createElement("p");
+  node.innerHTML = (r);
+  p.appendChild(node);
 }
-
+//Muestra el resultado de la nota final del ejercicio.
 function presentarNota()
 {
-    darRespuestaHtml("Nota: <b>"+nota+"</b> puntos sobre 10");
+  darRespuestaHtml("<b>Nota: "+nota+"</b> punto/s sobre 10");
 }
-
+//Borramos resultados antriores. Contador de notas a cero.
 function inicializar()
 {
-    document.getElementById("comp").innerHTML = "";
-    nota=0.0;
+  document.getElementById("comp").innerHTML = "";
+  nota=0.0;
 }
-
-
 //Reloj de cuenta atras del tiempo para la realización de la prueba.
-var cronometro;    
 function cargaCrono()
 {
-    contador_s =0;
-    contador_m =15;
-    s = document.getElementById("segundos");
-    m = document.getElementById("minutos");
-    m.innerHTML = contador_m;
-    cronometro = setInterval(function()
-    {         
-        if(contador_s>0)
+  contador_s =30;
+  contador_m =0;
+  s = document.getElementById("segundos");
+  m = document.getElementById("minutos");
+  m.innerHTML = contador_m;
+  setInterval(function()
+  {         
+    if(contador_s>0)
+    {
+      contador_s--;
+      if (contador_s<10)
+      {
+        contador_s = "0"+contador_s;//Añade '0' cuando los segundos son < 10.
+      }
+      s.innerHTML=contador_s;
+      }            
+      else
+      {
+        if(contador_m>0)
         {
-            contador_s--;
-            if (contador_s<10)
-            {
-                contador_s = "0"+contador_s;//Añade '0' cuando los segundos son < 10.
-            }
-            s.innerHTML=contador_s;
-        }            
-        else
-        {
-            if(contador_m>0)
-            {
-                contador_m--;
-                if (contador_m<10)
-                {
-                    contador_m = "0"+contador_m;//Añade '0' cuando los minutos son < 10.
-                }
-                m.innerHTML=contador_m;
-                contador_s=59;
-                s.innerHTML=contador_s;
-            }
-            else
-            {
-                stop();
-            }
+          contador_m--;
+          if (contador_m<10) {contador_m = "0"+contador_m;}//Añade '0' cuando los minutos son < 10
+          m.innerHTML=contador_m;
+          contador_s=59;
+          s.innerHTML=contador_s;
         }
-    } ,1000);
+        else {stop();}//Detiene la aplicacion y muestra resultado.
+      }
+  } ,1000);
 }
 
-//Utilitza codepen.io per provar el codi. Última modificación: lunes, 9 de enero de 2017, 20:44.l
+function stop()
+{
+  corrExam();
+  setInterval(function()
+  {
+    var doc=document.getElementById("exam");
+    doc.innerHTML="";
+    var d=document.createElement("div");
+    d.setAttribute("id", "comprobacion");
+    doc.appendChild(d);
+    presentarNota();
+  }, 5000);
+}

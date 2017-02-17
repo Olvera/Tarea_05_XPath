@@ -8,4 +8,4 @@ img{display: block; float: right; margin: 0 auto; width: 20%;}
 h3, #homeDiv{text-align: center;}
 #crono{position: fixed; margin: 10px 50px; padding: 10px;}
 #homeDiv img{float: left; width: 20%;}
-.start, #comp{display: block; text-align: center; margin: 0 auto;}
+.start, .comp{display: block; text-align: center; margin: 0 auto;}
