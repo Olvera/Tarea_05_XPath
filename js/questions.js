@@ -437,7 +437,7 @@ function cargaCrono()
 {
   t=1000;
   contador_s=0;
-  contador_m=15;
+  contador_m=5;
   s = document.getElementById("segundos");
   m = document.getElementById("minutos");
   m.innerHTML = contador_m;
