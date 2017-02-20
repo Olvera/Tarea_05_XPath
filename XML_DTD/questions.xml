@@ -14,6 +14,7 @@
   <quiz id="q002">
     <type>select</type>
     <title>JavaScript es un lenguaje:</title>
+      <option>Seleccione una opción</option>
       <option>Interpretado, orientado a objetos</option>
       <option>Estructurado de consultas</option> 
       <option>Llenguaje de bajo nivel</option>
@@ -24,7 +25,7 @@
   <quiz id="q003">
     <type>multiple</type>
     <title>Selecciona los navegadores WEB<br/>
-    (<b>mantén pulsado 'CONTROL' para elegir opciones</b>)</title>
+    (<b>mantenga pulsado 'CONTROL' para elegir opciones</b>)</title>
       <option>Opera</option>
       <option>LibreOffice</option>
       <option>Adobe PhotoShop</option>
@@ -65,6 +66,7 @@
   <quiz id="q007">
     <type>select</type>
     <title>Java es un lenguaje de programación</title>
+      <option>Seleccione una opción</option>
       <option>Orientado a objetos</option>
       <option>Estructurado de consultas</option> 
       <option>Llenguaje de bajo nivel</option>

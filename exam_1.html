@@ -10,7 +10,7 @@
 		<script src="js/questions.js"></script>
 	</head>
 
-<body >
+<body>
 
 	<div id="crono">
 		<span id="minutos">00</span>:<span id="segundos">00</span>
@@ -21,6 +21,13 @@
 		<img src="img/Tot_Univ_2.gif" alt="Total University logo">
 		<h3><b><i>Total University - El mañana es hoy<br/><br/>
 		Sede central: Parque Tecnológico TIC-TAC - Ciudad de las Ciencias - 08002 Madrid<br/></i></b></h3>
+		<div id="menu">
+			<ul>
+				<li><a href="home.html"><b>Página principal<b/></a></li>
+				<li><a href="how_to.html"><b>Instrucciones de la prueba<b/></a></li>
+				<li><a class="active" href="exam_1.html"><b>Prueba tus conocimientos<b/></a></li>
+			</ul>
+		</div>
 	</div>
 
 <main id="exam">
@@ -94,14 +101,22 @@
 		<form id="in_10"></form>
 	</div>
 
-	<br/>
-	<input id="comp" class="comp" type="button" onclick="" value="Comprobar resultados">
-	<br/>
+	<br/><input id="comp" class="comp" type="button" onclick="" value="Comprobar resultados"><br/>
 
-	<div id="comprobacion">
-		<h5>Resultados: </h5>
-	</div>
 </main>
+
+<div id="comprobacion">
+	<h5>RESULTADOS: </h5>
+	<p id="res"></p>
+</div>
+
+<footer>
+	<address>
+		<p>Creado por: Fco. Javier Olvera Martínez - <small>Febrero 2017</small></p>
+		<p>1º ASIX - LMSGI - UT 3</p>
+		<a href="mailto:f.j.olvera@gmail.com">Contacto</a>
+	</address>
+</footer>
 
 </body>
 </html>
