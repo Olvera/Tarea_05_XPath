@@ -17,7 +17,6 @@ window.onload = function()
   formElement=document.getElementById("comp");
   formElement.onclick=function()
   {
-    inicializar();
     corrExam();
     click=true;
   };
@@ -37,6 +36,7 @@ window.onload = function()
 
 function corrExam()
 {
+  inicializar();
   corregirText1();
   corregirSelect1();
   corregirMulti1();
@@ -258,7 +258,7 @@ function corregirSelect1()
     darRespuestaHtml("Nº 2: <b>Correcto!</b>");
     nota +=1;
   }
-  else {darRespuestaHtml("Nº 2: <b>Respuesta incorrecto</b>");}
+  else {darRespuestaHtml("Nº 2: <b>Respuesta incorrecta</b>");}
 }
 
 function corregirSelect2()
@@ -269,7 +269,7 @@ function corregirSelect2()
     darRespuestaHtml("Nº 7: <b>Correcto!</b>");
     nota +=1;
   }
-  else {darRespuestaHtml("Nº 7: <b>Incorrecto</b>");}
+  else {darRespuestaHtml("Nº 7: <b>Respuesta incorrecta</b>");}
 }
 
 function corregirMulti1()
@@ -428,7 +428,8 @@ function presentarNota()
 //Borramos resultados antEriores. Contador de notas a cero.
 function inicializar()
 {
-  document.getElementById("res").innerHTML="";
+  var v=document.getElementById("comprobacion");
+  v.innerHTML="";
   nota=0.0;
 }
 //Reloj de cuenta atras del tiempo para la realización de la prueba.
