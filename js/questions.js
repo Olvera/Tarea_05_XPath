@@ -466,8 +466,8 @@ function cargaCrono()
     if (s.innerHTML==0 && m.innerHTML==0)
     {
       t=0;
-    if(!click) {nota=0.0; corrExam(); stop();}
-    else {stop();}
+      if(!click) {nota=0.0; corrExam(); stop();}
+      else {stop();}
     };
   },t);
 }
