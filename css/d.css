@@ -12,7 +12,7 @@ li a{color:yellow;text-align:center;padding:0px;font-family: verdana;font-size:1
 li a:hover:not(.active){background-color: teal; color: lightgreen;}
 li {float: left; display: block; text-align: center; margin: 0px 20px; padding: 10px;}
 #crono{position: fixed; margin: 10px 50px; padding: 10px;}
-#homeDiv img{float: left; width: 20%;}
+#homeDiv img{float: left; width: 10%;}
 .start, .comp{display: block; text-align: center; margin: 0 auto;}
 footer{font-family: verdana; font-size: 1em; color: darkgreen; text-align: right; float: right; 
 	margin: 10px 50px; padding: 30px 20px;}
