@@ -468,7 +468,7 @@ function cargaCrono()
       t=0;
     if(!click) {nota=0.0; corrExam(); stop();}
     else {stop();}
-    }
+    };
   },t);
 }
 

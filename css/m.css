@@ -1,7 +1,7 @@
 body,html{height:100%;padding:0px;margin:0px; background-color: lightblue;}
 main{background:none repeat scroll 0 0 wheat; border: 1px solid; box-shadow: 1px 1px 6px #000000; 
 	margin: 0 auto; padding: 0 41px 41px; width: auto; height: auto;}
-div{background-color: teal; font-family: verdana; font-size: 0.7em; color: yellow; display:block; 
+div{background-color: teal; font-family: 'Verdana' sans-serif; font-size: 0.7em; color: yellow; display:block; 
 	width:auto; height:auto; margin: 10px 5px; padding: 5px 10px; 
 	border: 2px solid lightgreen; border-radius: 10px; box-shadow: 2px 2px 5px #000000;}
 img{display: block; margin: 0 auto; width: 50%;}

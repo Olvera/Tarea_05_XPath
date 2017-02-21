@@ -11,11 +11,11 @@
 	</head>
 
 <body>
-
+	<!--Presenta el cronómetro, esq. superior izq.-->
 	<div id="crono">
 		<span id="minutos">00</span>:<span id="segundos">00</span>
 	</div>
-
+	<!--Cabecera-->
 	<div id="homeDiv">
 		<br/>
 		<img src="img/Tot_Univ_2.gif" alt="Total University logo">
@@ -29,15 +29,15 @@
 			</ul>
 		</div>
 	</div>
-
+<!--Contenedor principal-->
 <main id="exam">
-	<!--Formulari amb camp de text, onsubmit fer que surti un missatge amb el que hem escrit:-->
+	<!--Pregunta tipo INPUT TXT-->
 	<div>
 		<h5>PREGUNTA 1</h5>
 		<p id='q001'></p>
 		<form id="in_1"></form>
 	</div>
-	<!--Formulari per triar una opció de tres (select), onsubmit o onchange mostrar el valor de l'opció seleccionada:-->
+	<!--Pregunta tipo SELECT-->
 	<div>
 		<h5>PREGUNTA 2</h5>
 		<p id='q002'></p>
@@ -45,7 +45,7 @@
 			<select id="in_2"></select>
 		</form>
 	</div>
-	<!--Formulari per triar més d'una opció de tres (select multiple), onsubmit o onchange mostrar el valor de l'opció seleccionada:-->
+	<!--Pregunta tipo SELECT MULTIPLE-->
 	<div>
 		<h5>PREGUNTA 3</h5>
 		<p id='q003'></p>
@@ -53,25 +53,25 @@
 			<select id="in_3"></select>
 		</form>
 	</div>
-	<!--Formulari per triar més d'una opció de tres (checkbox), onsubmit mostrar les opcions seleccionades:-->
+	<!--Pregunta tipo CHECKBOX SELECT-->
 	<div>
 		<h5>PREGUNTA 4</h5>
 		<p id='q004'></p>
 		<form id="in_4"></form>
 	</div>
-	<!--Formulari per triar una opció de tres (radio), onsubmit mostrar la opció seleccionada:-->
+	<!--Pregunta tipo RADIO SELECT-->
 	<div>
 		<h5>PREGUNTA 5</h5>
 		<p id='q005'></p>		
 		<form id="in_5"></form>
 	</div>
-
+	<!--Pregunta tipo INPUT TEXT-->
 	<div>
 		<h5>PREGUNTA 6</h5>
 		<p id='q006'></p>
 		<form id="in_6"></form>
 	</div>
-	<!--Formulari per triar una opció de tres (select), onsubmit o onchange mostrar el valor de l'opció seleccionada:-->
+	<!--Pregunta tipo SELECT-->
 	<div>	
 		<h5>PREGUNTA 7</h5>
 		<p id='q007'></p>
@@ -79,8 +79,7 @@
 			<select id="in_7"></select>
 		</form>
 	</div>
-
-	<!--Formulari per triar més d'una opció de tres (select multiple), onsubmit o onchange mostrar el valor de l'opció seleccionada:-->
+	<!--Pregunta tipo SELECT MULTIPLE-->
 	<div>
 		<h5>PREGUNTA 8</h5>
 		<p id='q008'></p>
@@ -88,23 +87,23 @@
 			<select id="in_8"></select>
 		</form>
 	</div>
-	<!--Formulari per triar més d'una opció de tres (checkbox), onsubmit mostrar les opcions 	seleccionades:-->
+	<!--Pregunta tipo CHECKBOX SELECT-->
 	<div>
 		<h5>PREGUNTA 9</h5>
 		<p id='q009'></p>
 		<form id="in_9"></form>
 	</div>
-	<!--Formulari per triar una opció de tres (radio), onsubmit mostrar la opció seleccionada:-->
+	<!--Pregunta tipo RADIO SELECT-->
 	<div>
 		<h5>PREGUNTA 10</h5>
 		<p id='q010'></p>
 		<form id="in_10"></form>
 	</div>
-
+	<!--Botón que comprueba los resultados al pulsar-->
 	<br/><input id="comp" class="comp" type="button" onclick="" value="Comprobar resultados"><br/>
 
 </main>
-
+<!--contenedor para mostrar resultados al comprobar-->
 <div id="comprobacion">
 	<h5>RESULTADOS: </h5>
 </div>
