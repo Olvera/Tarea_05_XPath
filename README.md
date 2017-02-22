@@ -99,7 +99,9 @@ Sin estridencias cromáticas, pero atractivo.
       
    * Botón **_Comprobar resultados_** (pié de contenedor 'MAIN'). Al pulsarlo, antes de concluir el tiempo establecido,
    aparece, abajo e independiente de 'MAIN', un nuevo 'DIV' en el que se muestra, por orden (del nº 1 al nº 10), si la respuesta 
-   seleccionada es o no correcta. Permitimos, así, rectificar las respuestas erroneas. Una vez finalizado el tiempo, una 
-   ventana tipo 'ALERT' nos comunica este hecho y que al 'ACEPTAR' dicho mensaje, podremos ver la calificación final.
-     Al hacerlo, se vacía todo el contenido de 'MAIN' y desaparece el cronómetro. El contenido ahora es un solo 'DIV' en el que vemos 
-   la calificación final, dando por concluido el examen.
+   seleccionada es o no correcta. Permitimos, así, rectificar las respuestas erroneas. 
+   Una vez finalizado el tiempo, una ventana tipo 'ALERT' nos comunica este hecho y que al 'ACEPTAR' dicho mensaje, podremos ver la calificación final.
+   Al hacerlo, se vacía todo el contenido de 'MAIN' y desaparece el cronómetro.
+
+El contenido ahora es un solo 'DIV' en el que vemos la calificación final, dando por concluido el examen.
+     Aparece el boton **_¿Nuevo intento?_** , que invita a realizar de nuevo el examen directamente.

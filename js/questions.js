@@ -463,8 +463,14 @@ function cargaCrono()
         s.innerHTML=contador_s;
       }
     }
+<<<<<<< HEAD
 
     if (s.innerHTML==1 && m.innerHTML==0) { t=0;nota=0.0; stop();}/*Dejamos a '1' los seg. para evitar repetición de 'alert'.*/
+=======
+    if (s.innerHTML==0 && m.innerHTML==0)
+    {
+      if (s.innerHTML==1 && m.innerHTML==0) { t=0;nota=0.0; stop();}/*Dejamos a '1' los seg. para evitar repetición de 'alert'.*/
+>>>>>>> origin/master
   },t);
 }
 /* Alerta sobre fin de tiempo y, al aceptar, presenta nota final.*/
@@ -481,6 +487,7 @@ function stop()
   doc.appendChild(com);
   creaBoton(doc);
   com.appendChild(res);  
+<<<<<<< HEAD
 }
 /*Creamos un botón para retornar al test directamente desde la página de resultados.*/
 function creaBoton(enDiv)
@@ -491,4 +498,15 @@ function creaBoton(enDiv)
   b.value="¿Nuevo intento?";
   b.onclick=function(){window.location.reload()};
   enDiv.appendChild(b);
+=======
+>>>>>>> origin/master
 }
+/*Creamos un botón para retornar al test directamente desde la página de resultados.*/
+function creaBoton(enDiv)
+{
+  var b=document.createElement("input");
+  b.className="start";
+  b.type="button";
+  b.value="¿Nuevo intento?";
+  b.onclick=function(){window.location.reload()};
+  enDiv.appendChild(b);
