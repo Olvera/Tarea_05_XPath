@@ -463,6 +463,7 @@ function cargaCrono()
         s.innerHTML=contador_s;
       }
     }
+
     if (s.innerHTML==1 && m.innerHTML==0) { t=0;nota=0.0; stop();}/*Dejamos a '1' los seg. para evitar repetición de 'alert'.*/
   },t);
 }
