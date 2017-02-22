@@ -14,8 +14,8 @@
   <quiz id="q002">
     <type>select</type>
     <title>JavaScript es un lenguaje:</title>
-      <option>Interpretado, orientado a objetos</option>
-      <option>Estructurado de consultas</option> 
+      <option>Estructurado de consultas</option>
+      <option>Interpretado, orientado a objetos</option> 
       <option>Llenguaje de bajo nivel</option>
     <answer>1</answer>
   </quiz>
