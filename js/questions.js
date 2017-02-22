@@ -465,10 +465,7 @@ function cargaCrono()
     }
     if (s.innerHTML==0 && m.innerHTML==0)
     {
-      t=0;
-      if(!click) {nota=0.0; corrExam(); stop();}
-      else {stop();}
-    };
+      if (s.innerHTML==1 && m.innerHTML==0) { t=0;nota=0.0; stop();}/*Dejamos a '1' los seg. para evitar repetición de 'alert'.*/
   },t);
 }
 
@@ -481,4 +478,15 @@ function stop()
   c.remove("crono");
   doc.innerHTML="";
   doc.appendChild(com);
+  creaBoton(doc);
+  com.appendChild(res);  
 }
+/*Creamos un botón para retornar al test directamente desde la página de resultados.*/
+function creaBoton(enDiv)
+{
+  var b=document.createElement("input");
+  b.className="start";
+  b.type="button";
+  b.value="¿Nuevo intento?";
+  b.onclick=function(){window.location.reload()};
+  enDiv.appendChild(b);
