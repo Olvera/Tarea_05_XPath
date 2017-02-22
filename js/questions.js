@@ -11,12 +11,12 @@ var res_rad_1 = null;
 var res_rad_2 = null;
 var click=false;
 
-//al cargar la página... 
+/*al cargar la página...*/
 window.onload = function()
-{ //CORREGIR al apretar el botón
+{ /*CORREGIR al apretar el botón.*/
   formElement=document.getElementById("comp");
   formElement.onclick=function()
-  {
+  {    
     corrExam();
     click=true;
   };
@@ -33,7 +33,7 @@ window.onload = function()
   xhttp.open("GET", "XML_DTD/questions.xml", true);
   xhttp.send();
 };
-
+/*Pone a cero contador 'nota'. Comprueba y muestra resultados.*/
 function corrExam()
 {
   inicializar();
@@ -50,13 +50,13 @@ function corrExam()
   presentarNota();
 }
 
-//Rellenamos la página con el contenido de esta.
+/*Rellenamos la página con el contenido de esta.*/
 function gestionarXml(contXml)
 {
   var xmlDoc = contXml.responseXML;
-  //Pregunta tipo 'texto' nº 1.
+  /*Pregunta tipo 'texto' nº 1.*/
   document.getElementById("q001").innerHTML = xmlDoc.getElementsByTagName("title")[0].innerHTML;
-  res_t_1 = xmlDoc.getElementById("q001").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
+  res_t_1 = xmlDoc.getElementById("q001").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select= document.getElementById("in_1");
   var inpt = document.createElement("input");
   inpt.type = xmlDoc.getElementsByTagName("type")[0].innerHTML;
@@ -64,9 +64,9 @@ function gestionarXml(contXml)
   inpt.autocomplete="off";
   select.appendChild(inpt);
         
-  //Pregunta tipo 'select' nº 1
+  /*Pregunta tipo 'select' nº 1.*/
   document.getElementById("q002").innerHTML = xmlDoc.getElementsByTagName("title")[1].innerHTML;
-  res_sel_1 = xmlDoc.getElementById("q002").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
+  res_sel_1 = xmlDoc.getElementById("q002").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select = document.getElementById("in_2");
   var nopciones = xmlDoc.getElementById("q002").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
@@ -77,9 +77,9 @@ function gestionarXml(contXml)
     select.appendChild(option);
   } 
 
-  //Pregunta tipo select 'multiple' nº 1.
+  /*Pregunta tipo select 'multiple' nº 1.*/
   document.getElementById("q003").innerHTML = xmlDoc.getElementsByTagName("title")[2].innerHTML;
-  var nres = xmlDoc.getElementById("q003").getElementsByTagName("answer").length;//Guardamos respuesta/s correctas para comprobación posterior.
+  var nres = xmlDoc.getElementById("q003").getElementsByTagName("answer").length;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   for (i = 0; i < nres; i++)
   {
     res_mul_1[i] = xmlDoc.getElementById("q003").getElementsByTagName("answer")[i].innerHTML;
@@ -95,7 +95,7 @@ function gestionarXml(contXml)
     select.appendChild(option);
   } 
 
-  //Pregunta tipo 'checkbox' nº 1.
+  /*Pregunta tipo 'checkbox' nº 1.*/
   document.getElementById("q004").innerHTML = xmlDoc.getElementsByTagName("title")[3].innerHTML;
   select= document.getElementById("in_4");
   nopciones = xmlDoc.getElementById("q004").getElementsByTagName("option").length;
@@ -109,16 +109,16 @@ function gestionarXml(contXml)
     select.innerHTML += xmlDoc.getElementById("q004").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
   }
-  //Guardamos respuesta/s correctas para comprobación posterior.
+  /*Guardamos respuesta/s correctas para comprobación posterior.*/
   nres = xmlDoc.getElementById("q004").getElementsByTagName('answer').length;
   for (i = 0; i < nres; i++)
   { 
     res_chb_1[i]=xmlDoc.getElementById("q004").getElementsByTagName("answer")[i].innerHTML;
   }
 
-  //Pregunta tipo 'radio' nº 1.
+  /*Pregunta tipo 'radio' nº 1.*/
   document.getElementById('q005').innerHTML=xmlDoc.getElementsByTagName("title")[4].innerHTML;
-  res_rad_1 = xmlDoc.getElementById("q005").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
+  res_rad_1 = xmlDoc.getElementById("q005").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select=document.getElementById("in_5");
   nopciones = xmlDoc.getElementById("q005").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
@@ -132,9 +132,9 @@ function gestionarXml(contXml)
     select.innerHTML+="<br/>";
   } 
 
-  //Pregunta tipo 'texto' nº 2.
+  /*Pregunta tipo 'texto' nº 2.*/
   document.getElementById("q006").innerHTML = xmlDoc.getElementsByTagName("title")[5].innerHTML;
-  res_t_2 = xmlDoc.getElementById("q006").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
+  res_t_2 = xmlDoc.getElementById("q006").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select= document.getElementById("in_6");
   inpt = document.createElement("input");
   inpt.type = xmlDoc.getElementsByTagName("type")[5].innerHTML;
@@ -142,9 +142,9 @@ function gestionarXml(contXml)
   inpt.autocomplete="off";
   select.appendChild(inpt);
   
-  //Pregunta tipo 'select' nº 2.
+  /*Pregunta tipo 'select' nº 2.*/
   document.getElementById("q007").innerHTML = xmlDoc.getElementsByTagName("title")[6].innerHTML;
-  res_sel_2 = xmlDoc.getElementById("q007").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
+  res_sel_2 = xmlDoc.getElementById("q007").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select = document.getElementById("in_7");
   nopciones = xmlDoc.getElementById("q007").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
@@ -155,7 +155,7 @@ function gestionarXml(contXml)
     select.appendChild(option);
   } 
 
-  //Pregunta tipo select 'multiple' nº 2.
+  /*Pregunta tipo select 'multiple' nº 2.*/
   document.getElementById("q008").innerHTML = xmlDoc.getElementsByTagName("title")[7].innerHTML;
   for (i = 0; i < nres; i++)
   {
@@ -172,9 +172,9 @@ function gestionarXml(contXml)
     select.appendChild(option);
   } 
 
-  //Pregunta tipo 'checkbox' nº 2.
+  /*Pregunta tipo 'checkbox' nº 2.*/
   document.getElementById('q009').innerHTML = xmlDoc.getElementsByTagName("title")[8].innerHTML;
-  res_rad_2 = xmlDoc.getElementById("q009").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
+  res_rad_2 = xmlDoc.getElementById("q009").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select= document.getElementById("in_9");
   nopciones = xmlDoc.getElementById("q009").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
@@ -187,16 +187,16 @@ function gestionarXml(contXml)
     select.innerHTML += xmlDoc.getElementById("q009").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
   }
-  //Guardamos respuesta/s correctas para comprobación posterior.
+  /*Guardamos respuesta/s correctas para comprobación posterior.*/
   nres = xmlDoc.getElementById("q009").getElementsByTagName('answer').length;
   for (i = 0; i < nres; i++)
   { 
     res_chb_2[i]=xmlDoc.getElementById("q009").getElementsByTagName("answer")[i].innerHTML;
   }
   
-  //Pregunta tipo 'radio' nº 2.
+  /*Pregunta tipo 'radio' nº 2.*/
   document.getElementById('q010').innerHTML=xmlDoc.getElementsByTagName("title")[9].innerHTML;
-  res_rad_2 = xmlDoc.getElementById("q010").getElementsByTagName("answer")[0].innerHTML;//Guardamos respuesta/s correctas para comprobación posterior.
+  res_rad_2 = xmlDoc.getElementById("q010").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   nopciones = xmlDoc.getElementById("q010").getElementsByTagName("option").length;
   select=document.getElementById("in_10");
   for (i = 0; i < nopciones; i++)
@@ -210,7 +210,7 @@ function gestionarXml(contXml)
     select.innerHTML+="\t";
   }
 }
-//implementación de la corrección de cada pregunta.
+/*Implementación de la corrección de cada pregunta.*/
 function corregirText1()
 {
   var s = document.getElementById("in_1").getElementsByTagName("input")[0].value;
@@ -293,8 +293,8 @@ function corregirMulti1()
   {   
     if (opt[i].selected) 
     {
-      if (v[i]) {nota +=1.0/res_mul_1.length; corr++;} //dividido por el número de respuestas correctas   
-      else {nota -=1.0/res_mul_1.length; corr--;} //dividido por el número de respuestas correctas
+      if (v[i]) {nota +=1.0/res_mul_1.length; corr++;} /*dividido por el número de respuestas correctas*/   
+      else {nota -=1.0/res_mul_1.length; corr--;} /*dividido por el número de respuestas correctas*/
     }
   }
   if (corr==res_mul_1.length) {darRespuestaHtml("Nº 3: <b>Correcto!</b>");}
@@ -322,8 +322,8 @@ function corregirMulti2()
   {   
     if (opt[i].selected) 
     {
-      if (v[i]) {nota +=1.0/res_mul_2.length; corr++;} //dividido por el número de respuestas correctas   
-      else {nota -=1.0/res_mul_2.length; corr--;} //dividido por el número de respuestas correctas
+      if (v[i]) {nota +=1.0/res_mul_2.length; corr++;} /*dividido por el número de respuestas correctas*/   
+      else {nota -=1.0/res_mul_2.length; corr--;} /*dividido por el número de respuestas correctas*/   
     }
   }
   if (corr==res_mul_2.length) {darRespuestaHtml("Nº 8: <b>Correcto!</b>");}
@@ -352,8 +352,8 @@ function corregirCheckbox1()
   {   
     if (opt[i].checked) 
     {
-      if (v[i]) {nota +=1.0/res_chb_1.length; corr++;} //dividido por el número de respuestas correctas   
-      else {nota -=1.0/res_chb_1.length; corr--;} //dividido por el número de respuestas correctas
+      if (v[i]) {nota +=1.0/res_chb_1.length; corr++;} /*dividido por el número de respuestas correctas*/     
+      else {nota -=1.0/res_chb_1.length; corr--;} /*dividido por el número de respuestas correctas*/   
     }
   }
   if (corr==res_chb_1.length) {darRespuestaHtml("Nº 4: <b>Correcto!</b>");}
@@ -382,8 +382,8 @@ function corregirCheckbox2()
   {   
     if (opt[i].checked) 
     {
-      if (v[i]) {nota +=1.0/res_chb_2.length; corr++;} //dividido por el número de respuestas correctas   
-      else {nota -=1.0/res_chb_2.length; corr--;} //dividido por el número de respuestas correctas
+      if (v[i]) {nota +=1.0/res_chb_2.length; corr++;} /*dividido por el número de respuestas correctas*/    
+      else {nota -=1.0/res_chb_2.length; corr--;} /*dividido por el número de respuestas correctas*/   
     }
   }
   if (corr==res_chb_2.length) {darRespuestaHtml("Nº 9: <b>Correcto!</b>");}
@@ -413,26 +413,26 @@ function corregirRadio2()
   if(r==res_rad_2) { darRespuestaHtml("Nº 10: <b>Correcto!</b>"); nota +=1; }
   else {darRespuestaHtml("Nº 10: <b>Respuesta incorrecta</b>");}
 }
-//Gestionar la presentación de las respuestas.
+/*Gestionar la presentación de las respuestas.*/
 function darRespuestaHtml(r)
 {
   var p = document.createElement("p");
   p.innerHTML = (r);
   document.getElementById("comprobacion").appendChild(p);
 }
-//Muestra el resultado de la nota final del ejercicio.
+/*Muestra el resultado de la nota final del ejercicio.*/
 function presentarNota()
 {
   darRespuestaHtml("<b>Nota: "+nota+"</b> punto/s sobre 10");
 }
-//Borramos resultados antEriores. Contador de notas a cero.
+/*Borramos resultados anteriores. Contador de notas a cero.*/
 function inicializar()
 {
   var v=document.getElementById("comprobacion");
   v.innerHTML="";
   nota=0.0;
 }
-//Reloj de cuenta atras del tiempo para la realización de la prueba.
+/*Reloj de cuenta atras del tiempo para la realización de la prueba.*/
 function cargaCrono()
 {
   t=1000;
@@ -442,13 +442,13 @@ function cargaCrono()
   m = document.getElementById("minutos");
   m.innerHTML = contador_m;
   setInterval(function()
-  {         
+  {
     if(contador_s>0)
     {
       contador_s--;
       if (contador_s<10)
       {
-        contador_s = "0"+contador_s;//Añade '0' cuando los segundos son < 10.
+        contador_s = "0"+contador_s;/*Añade '0' cuando los segundos son < 10.*/
       }
       s.innerHTML=contador_s;
     }            
@@ -457,28 +457,37 @@ function cargaCrono()
       if(contador_m>0)
       {
         contador_m--;
-        if (contador_m<10) {contador_m = "0"+contador_m;}//Añade '0' cuando los minutos son < 10
+        if (contador_m<10) {contador_m = "0"+contador_m;}/*Añade '0' cuando los minutos son < 10.*/
         m.innerHTML=contador_m;
         contador_s=59;
         s.innerHTML=contador_s;
       }
     }
-    if (s.innerHTML==0 && m.innerHTML==0)
-    {
-      t=0;
-    if(!click) {nota=0.0; corrExam(); stop();}
-    else {stop();}
-    };
+    if (s.innerHTML==1 && m.innerHTML==0) { t=0;nota=0.0; stop();}/*Dejamos a '1' los seg. para evitar repetición de 'alert'.*/
   },t);
 }
-
+/* Alerta sobre fin de tiempo y, al aceptar, presenta nota final.*/
 function stop()
-{
-  alert("¡¡Tiempo agotado!!  Pulse 'ACEPTAR' y aparecerá su calificación");
+{  
   var doc=document.getElementById("exam");
   var com=document.getElementById("comprobacion");
   var c=document.getElementById("crono");
+  var res=document.getElementById("comprobacion").innerHTML;
+  corrExam();
+  alert("¡¡Tiempo agotado!!  Pulse 'ACEPTAR' y aparecerá su calificación");
   c.remove("crono");
-  doc.innerHTML="";
+  doc.innerHTML="";  
   doc.appendChild(com);
+  creaBoton(doc);
+  com.appendChild(res);  
+}
+/*Creamos un botón para retornar al test directamente desde la página de resultados.*/
+function creaBoton(enDiv)
+{
+  var b=document.createElement("input");
+  b.className="start";
+  b.type="button";
+  b.value="¿Nuevo intento?";
+  b.onclick=function(){window.location.reload()};
+  enDiv.appendChild(b);
 }

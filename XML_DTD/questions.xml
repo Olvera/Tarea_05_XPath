@@ -74,7 +74,7 @@
 <!--Idem que 'q003'-->
   <quiz id="q008">
     <type>multiple</type>
-    <title>Es un dispositivo hardware que forma o puede formar parte de la infraestructura de una red informática<br/>
+    <title>Es un dispositivo hardware que forma parte de la infraestructura de una red informática<br/>
     (<b>mantén pulsado 'CONTROL' para elegir opciones</b>)</title>
       <option>Monitor</option>
       <option>Brigde</option>
