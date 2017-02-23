@@ -32,5 +32,5 @@
     <xs:complexType/>
   </xs:element>
   <xs:element name="option" type="xs:string"/>
-  <xs:element name="answer" type="xs:NMTOKEN"/>
+  <xs:element name="answer" type="xs:string"/>
 </xs:schema>
