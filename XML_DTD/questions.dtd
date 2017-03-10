@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!ELEMENT questions (quiz+)>
-<!ELEMENT quiz (type,tittle,option*,answer+)>
-<!ATTLIST quiz id ID #REQUIRED>
-<!ELEMENT type (#PCDATA)>
-<!ELEMENT tittle (#PCDATA)>
-<!ELEMENT option (#PCDATA)>
-<!ELEMENT answer (#PCDATA)>
-
