@@ -32,8 +32,9 @@ window.onload = function()
   
   xhttp.open("GET", "xml/questions.xml", true);
   xhttp.send();
-  /*LEER XSL de xml/questions.xml*/
-  /*var xhttp2 = new XMLHttpRequest();
+
+    //LEER XSL de xml/questions.xml
+  var xhttp2 = new XMLHttpRequest();
   xhttp2.onreadystatechange = function()
   {
     if (this.readyState == 4 && this.status == 200)
@@ -42,10 +43,9 @@ window.onload = function()
       }
   };
 
-  xhttp2.open("GET", "xml/questions.xsl", true);
+  /*xhttp2.open("GET", "xml/questions.xsl", true);
   xhttp2.send();*/
 };
-
 /*Pone a cero contador 'nota'. Comprueba y muestra resultados.*/
 function corrExam()
 {
@@ -115,7 +115,7 @@ function gestionarXml(contXml)
   var xpath = "/questions/quiz[@id='q004']/option";
   var ty = xmlDoc.getElementsByTagName("type")[3].innerHTML;
   var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
-  ponerDatosCheckbox(q,sel,tituloSelect,nodes,ty);
+  ponerDatosChb_Rad(q,sel,tituloSelect,nodes,ty);
   /*Guardamos respuesta/s correctas para comprobación posterior.*/
   nres = xmlDoc.getElementById("q004").getElementsByTagName('answer').length;
   for (i = 0; i < nres; i++)
@@ -132,7 +132,7 @@ function gestionarXml(contXml)
   var xpath = "/questions/quiz[@id='q005']/option";
   var ty = xmlDoc.getElementsByTagName("type")[4].innerHTML;
   var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
-  ponerDatosCheckbox(q,sel,tituloSelect,nodes,ty);
+  ponerDatosChb_Rad(q,sel,tituloSelect,nodes,ty);
   /*Guardamos respuesta/s correctas para comprobación posterior.*/
   res_rad_1 = xmlDoc.getElementById("q005").getElementsByTagName("answer")[0].innerHTML;
 
@@ -171,7 +171,7 @@ function gestionarXml(contXml)
   var q = quiz.getAttribute("id");
   var xpath = "/questions/quiz[@id='q008']/option";
   var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
-  ponerDatosSelect(q,sel,tituloSelect,nodes,ty);
+  ponerDatosSelect(q,sel,tituloSelect,nodes);
 
   /*Pregunta tipo 'checkbox' nº 2.*/
   quiz = xmlDoc.querySelector("#q009");
@@ -182,7 +182,7 @@ function gestionarXml(contXml)
   var xpath = "/questions/quiz[@id='q009']/option";
   var ty = xmlDoc.getElementsByTagName("type")[8].innerHTML;
   var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
-  ponerDatosCheckbox(q,sel,tituloSelect,nodes,ty);
+  ponerDatosChb_Rad(q,sel,tituloSelect,nodes,ty);
   /*Guardamos respuesta/s correctas para comprobación posterior.*/
   nres = xmlDoc.getElementById("q009").getElementsByTagName('answer').length;
   for (i = 0; i < nres; i++)
@@ -199,7 +199,7 @@ function gestionarXml(contXml)
   var xpath = "/questions/quiz[@id='q010']/option";
   var ty = xmlDoc.getElementsByTagName("type")[9].innerHTML;
   var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
-  ponerDatosCheckbox(q,sel,tituloSelect,nodes,ty);
+  ponerDatosChb_Rad(q,sel,tituloSelect,nodes,ty);
   /*Guardamos respuesta/s correctas para comprobación posterior.*/
   res_rad_2 = xmlDoc.getElementById("q010").getElementsByTagName("answer")[0].innerHTML;
 
@@ -487,7 +487,7 @@ function creaBoton(enDiv)
   b.onclick=function(){window.location.reload()};
   enDiv.appendChild(b);
 }
-
+/*Ponemos datos de tipo 'Select' y 'Select multiple'*/
 function ponerDatosSelect(q,sel,t,nodes)
 {
   document.getElementById(q).innerHTML=t;
@@ -503,12 +503,13 @@ function ponerDatosSelect(q,sel,t,nodes)
     result = nodes.iterateNext();
   }  
 }
-function ponerDatosCheckbox(q,sel,t,nodes,ty)
+/*Ponemos datos de tipo 'Checkbox' y 'Radio'*/
+function ponerDatosChb_Rad(q,sel,t,nodes,ty)
 {
   document.getElementById(q).innerHTML = t;
   var checkboxContainer=document.getElementById(sel);
   var result = nodes.iterateNext();
-  i=1;
+  i=0;
   while (result)
   {
     var input = document.createElement("input");
@@ -519,7 +520,7 @@ function ponerDatosCheckbox(q,sel,t,nodes,ty)
     input.value=i; i++;
     checkboxContainer.appendChild(input);
     checkboxContainer.appendChild(label);
-    checkboxContainer.appendChild(document.createElement("br/"));
+    checkboxContainer.appendChild(document.createElement("br"));
     result = nodes.iterateNext();
   }
 }
