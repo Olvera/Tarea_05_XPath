@@ -30,9 +30,22 @@ window.onload = function()
     }
   };
   
-  xhttp.open("GET", "XML_DTD/questions.xml", true);
+  xhttp.open("GET", "xml/questions.xml", true);
   xhttp.send();
+  //LEER XSL de xml/questions.xml
+  var xhttp2 = new XMLHttpRequest();
+  xhttp2.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+      {
+        xslDoc=this.responseXML;
+      }
+  };
+
+  xhttp2.open("GET", "xml/questions.xsl", true);
+  xhttp2.send();
 };
+
 /*Pone a cero contador 'nota'. Comprueba y muestra resultados.*/
 function corrExam()
 {
@@ -53,6 +66,7 @@ function corrExam()
 /*Rellenamos la página con el contenido de esta.*/
 function gestionarXml(contXml)
 {
+  var txt="";
   var xmlDoc = contXml.responseXML;
   /*Pregunta tipo 'texto' nº 1.*/
   document.getElementById("q001").innerHTML = xmlDoc.getElementsByTagName("title")[0].innerHTML;
@@ -65,50 +79,43 @@ function gestionarXml(contXml)
   select.appendChild(inpt);
         
   /*Pregunta tipo 'select' nº 1.*/
-  document.getElementById("q002").innerHTML = xmlDoc.getElementsByTagName("title")[1].innerHTML;
+  quiz = xmlDoc.querySelector("#q002");
+  idSelect = document.querySelector("#in_2");
+  tituloSelect = xmlDoc.getElementsByTagName("title")[1].innerHTML;
   res_sel_1 = xmlDoc.getElementById("q002").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
-  select = document.getElementById("in_2");
-  var nopciones = xmlDoc.getElementById("q002").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
-    option = document.createElement("option");
-    option.text = xmlDoc.getElementById("q002").getElementsByTagName("option")[i].innerHTML;
-    option.value=i+1;
-    select.appendChild(option);
-  } 
+  var sel = idSelect.getAttribute("id");
+  var q = quiz.getAttribute("id");
+  var xpath = "/questions/quiz[@id='q002']/option";
+  var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+  ponerDatosSelect(q,sel,tituloSelect,nodes);
 
   /*Pregunta tipo select 'multiple' nº 1.*/
-  document.getElementById("q003").innerHTML = xmlDoc.getElementsByTagName("title")[2].innerHTML;
-  var nres = xmlDoc.getElementById("q003").getElementsByTagName("answer").length;/*Guardamos respuesta/s correctas para comprobación posterior.*/
+  quiz = xmlDoc.querySelector("#q003");
+  idSelect = document.querySelector("#in_3");
+  idSelect.setAttribute("multiple", "true");
+  tituloSelect = xmlDoc.getElementsByTagName("title")[2].innerHTML;
+    var sel = idSelect.getAttribute("id");
+  var q = quiz.getAttribute("id");
+  var xpath = "/questions/quiz[@id='q003']/option";
+  var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+  ponerDatosSelect(q,sel,tituloSelect,nodes);
+  /*Guardamos respuesta/s correctas para comprobación posterior.*/
+  var nres = xmlDoc.getElementById("q003").getElementsByTagName("answer").length;
   for (i = 0; i < nres; i++)
   {
     res_mul_1[i] = xmlDoc.getElementById("q003").getElementsByTagName("answer")[i].innerHTML;
   }
-  select = document.getElementById("in_3");
-  select.multiple = true;    
-  nopciones = xmlDoc.getElementById("q003").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
-    option = document.createElement("option");
-    option.text = xmlDoc.getElementById("q003").getElementsByTagName("option")[i].innerHTML;
-    option.value=i+1;
-    select.appendChild(option);
-  } 
 
   /*Pregunta tipo 'checkbox' nº 1.*/
-  document.getElementById("q004").innerHTML = xmlDoc.getElementsByTagName("title")[3].innerHTML;
-  select= document.getElementById("in_4");
-  nopciones = xmlDoc.getElementById("q004").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
-    inpt = document.createElement("input");
-    inpt.type = xmlDoc.getElementsByTagName("type")[3].innerHTML;
-    inpt.name = inpt.type;
-    inpt.value=i+1;
-    select.appendChild(inpt);
-    select.innerHTML += xmlDoc.getElementById("q004").getElementsByTagName("option")[i].innerHTML;
-    select.innerHTML+="<br/>";
-  }
+  quiz = xmlDoc.querySelector("#q004");
+  idSelect = document.querySelector("#in_4");
+  tituloSelect = xmlDoc.getElementsByTagName("title")[3].innerHTML;
+  var sel = idSelect.getAttribute("id");
+  var q = quiz.getAttribute("id");
+  var xpath = "/questions/quiz[@id='q004']/option";
+  var ty = xmlDoc.getElementsByTagName("type")[3].innerHTML;
+  var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+  ponerDatosCheckbox(q,sel,tituloSelect,nodes,ty);
   /*Guardamos respuesta/s correctas para comprobación posterior.*/
   nres = xmlDoc.getElementById("q004").getElementsByTagName('answer').length;
   for (i = 0; i < nres; i++)
@@ -117,20 +124,17 @@ function gestionarXml(contXml)
   }
 
   /*Pregunta tipo 'radio' nº 1.*/
-  document.getElementById('q005').innerHTML=xmlDoc.getElementsByTagName("title")[4].innerHTML;
-  res_rad_1 = xmlDoc.getElementById("q005").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
-  select=document.getElementById("in_5");
-  nopciones = xmlDoc.getElementById("q005").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
-    inpt = document.createElement("input");
-    inpt.type = xmlDoc.getElementsByTagName("type")[4].innerHTML;
-    inpt.value=i+1;
-    inpt.name=inpt.type;
-    select.appendChild(inpt);
-    select.innerHTML += xmlDoc.getElementById("q005").getElementsByTagName("option")[i].innerHTML;
-    select.innerHTML+="<br/>";
-  } 
+  quiz = xmlDoc.querySelector("#q005");
+  idSelect = document.querySelector("#in_5");
+  tituloSelect = xmlDoc.getElementsByTagName("title")[4].innerHTML;
+  var sel = idSelect.getAttribute("id");
+  var q = quiz.getAttribute("id");
+  var xpath = "/questions/quiz[@id='q005']/option";
+  var ty = xmlDoc.getElementsByTagName("type")[4].innerHTML;
+  var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+  ponerDatosCheckbox(q,sel,tituloSelect,nodes,ty);
+  /*Guardamos respuesta/s correctas para comprobación posterior.*/
+  res_rad_1 = xmlDoc.getElementById("q005").getElementsByTagName("answer")[0].innerHTML;
 
   /*Pregunta tipo 'texto' nº 2.*/
   document.getElementById("q006").innerHTML = xmlDoc.getElementsByTagName("title")[5].innerHTML;
@@ -143,50 +147,42 @@ function gestionarXml(contXml)
   select.appendChild(inpt);
   
   /*Pregunta tipo 'select' nº 2.*/
-  document.getElementById("q007").innerHTML = xmlDoc.getElementsByTagName("title")[6].innerHTML;
+  quiz = xmlDoc.querySelector("#q007");
+  idSelect = document.querySelector("#in_7");
+  tituloSelect = xmlDoc.getElementsByTagName("title")[6].innerHTML;
   res_sel_2 = xmlDoc.getElementById("q007").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
-  select = document.getElementById("in_7");
-  nopciones = xmlDoc.getElementById("q007").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
-    option = document.createElement("option");
-    option.text = xmlDoc.getElementById("q007").getElementsByTagName("option")[i].innerHTML;
-    option.value=i+1;
-    select.appendChild(option);
-  } 
+  var sel = idSelect.getAttribute("id");
+  var q = quiz.getAttribute("id");
+  var xpath = "/questions/quiz[@id='q007']/option";
+  var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+  ponerDatosSelect(q,sel,tituloSelect,nodes);
 
   /*Pregunta tipo select 'multiple' nº 2.*/
-  document.getElementById("q008").innerHTML = xmlDoc.getElementsByTagName("title")[7].innerHTML;
+  quiz = xmlDoc.querySelector("#q008");
+  idSelect = document.querySelector("#in_8");
+  idSelect.setAttribute("multiple", "true");
+  tituloSelect = xmlDoc.getElementsByTagName("title")[7].innerHTML;
+  nopciones = xmlDoc.getElementById("q008").getElementsByTagName("option").length;
   for (i = 0; i < nres; i++)
   {
     res_mul_2[i] = xmlDoc.getElementById("q008").getElementsByTagName("answer")[i].innerHTML;
   }
-  select = document.getElementById("in_8");
-  select.multiple = true;    
-  nopciones = xmlDoc.getElementById("q008").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
-    option = document.createElement("option");
-    option.text = xmlDoc.getElementById("q008").getElementsByTagName("option")[i].innerHTML;
-    option.value=i+1;
-    select.appendChild(option);
-  } 
+  var sel = idSelect.getAttribute("id");
+  var q = quiz.getAttribute("id");
+  var xpath = "/questions/quiz[@id='q008']/option";
+  var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+  ponerDatosSelect(q,sel,tituloSelect,nodes,ty);
 
   /*Pregunta tipo 'checkbox' nº 2.*/
-  document.getElementById('q009').innerHTML = xmlDoc.getElementsByTagName("title")[8].innerHTML;
-  res_rad_2 = xmlDoc.getElementById("q009").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
-  select= document.getElementById("in_9");
-  nopciones = xmlDoc.getElementById("q009").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
-    inpt = document.createElement("input");
-    inpt.type = xmlDoc.getElementsByTagName("type")[8].innerHTML;
-    inpt.name = inpt.type;
-    inpt.value=i+1;
-    select.appendChild(inpt);
-    select.innerHTML += xmlDoc.getElementById("q009").getElementsByTagName("option")[i].innerHTML;
-    select.innerHTML+="<br/>";
-  }
+  quiz = xmlDoc.querySelector("#q009");
+  idSelect = document.querySelector("#in_9");
+  tituloSelect = xmlDoc.getElementsByTagName("title")[8].innerHTML;
+  var sel = idSelect.getAttribute("id");
+  var q = quiz.getAttribute("id");
+  var xpath = "/questions/quiz[@id='q009']/option";
+  var ty = xmlDoc.getElementsByTagName("type")[8].innerHTML;
+  var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+  ponerDatosCheckbox(q,sel,tituloSelect,nodes,ty);
   /*Guardamos respuesta/s correctas para comprobación posterior.*/
   nres = xmlDoc.getElementById("q009").getElementsByTagName('answer').length;
   for (i = 0; i < nres; i++)
@@ -195,20 +191,18 @@ function gestionarXml(contXml)
   }
   
   /*Pregunta tipo 'radio' nº 2.*/
-  document.getElementById('q010').innerHTML=xmlDoc.getElementsByTagName("title")[9].innerHTML;
-  res_rad_2 = xmlDoc.getElementById("q010").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
-  nopciones = xmlDoc.getElementById("q010").getElementsByTagName("option").length;
-  select=document.getElementById("in_10");
-  for (i = 0; i < nopciones; i++)
-  { 
-    inpt = document.createElement("input");
-    inpt.type = xmlDoc.getElementsByTagName("type")[9].innerHTML;
-    inpt.value=i+1;
-    inpt.name=inpt.type;
-    select.appendChild(inpt);
-    select.innerHTML += xmlDoc.getElementById("q010").getElementsByTagName("option")[i].innerHTML;
-    select.innerHTML+="\t";
-  }
+  quiz = xmlDoc.querySelector("#q010");
+  idSelect = document.querySelector("#in_10");
+  tituloSelect = xmlDoc.getElementsByTagName("title")[9].innerHTML;
+  var sel = idSelect.getAttribute("id");
+  var q = quiz.getAttribute("id");
+  var xpath = "/questions/quiz[@id='q010']/option";
+  var ty = xmlDoc.getElementsByTagName("type")[9].innerHTML;
+  var nodes = xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+  ponerDatosCheckbox(q,sel,tituloSelect,nodes,ty);
+  /*Guardamos respuesta/s correctas para comprobación posterior.*/
+  res_rad_2 = xmlDoc.getElementById("q010").getElementsByTagName("answer")[0].innerHTML;
+
 }
 /*Implementación de la corrección de cada pregunta.*/
 function corregirText1()
@@ -413,6 +407,8 @@ function corregirRadio2()
   if(r==res_rad_2) { darRespuestaHtml("Nº 10: <b>Correcto!</b>"); nota +=1; }
   else {darRespuestaHtml("Nº 10: <b>Respuesta incorrecta</b>");}
 }
+
+
 /*Gestionar la presentación de las respuestas.*/
 function darRespuestaHtml(r)
 {
@@ -490,4 +486,40 @@ function creaBoton(enDiv)
   b.value="¿Nuevo intento?";
   b.onclick=function(){window.location.reload()};
   enDiv.appendChild(b);
+}
+
+function ponerDatosSelect(q,sel,t,nodes)
+{
+  document.getElementById(q).innerHTML=t;
+  var select = document.getElementById(sel);
+  var result = nodes.iterateNext();
+  i=0;
+  while (result)
+  {
+    var option = document.createElement("option");
+    option.text = result.innerHTML;
+    option.value=i+1; i++;
+    select.add(option);
+    result = nodes.iterateNext();
+  }  
+}
+function ponerDatosCheckbox(q,sel,t,nodes,ty)
+{
+  document.getElementById(q).innerHTML = t;
+  var checkboxContainer=document.getElementById(sel);
+  var result = nodes.iterateNext();
+  i=1;
+  while (result)
+  {
+    var input = document.createElement("input");
+    var label = document.createElement("label");
+    label.innerHTML=result.innerHTML;
+    input.type=ty;
+    input.name=ty;
+    input.value=i; i++;
+    checkboxContainer.appendChild(input);
+    checkboxContainer.appendChild(label);
+    checkboxContainer.appendChild(document.createElement("br/"));
+    result = nodes.iterateNext();
+  }
 }
