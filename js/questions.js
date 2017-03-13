@@ -48,7 +48,7 @@ window.onload = function()
 /*Pone a cero contador 'nota'. Comprueba y muestra resultados.*/
 function corrExam()
 {
-  //if (comprobar())
+  if (comprobar())
   {
     corregirText1();
     corregirSelect1();
