@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="questions.xsl"?>
+
 <!--<!DOCTYPE questions SYSTEM "questions.dtd">-->
 <questions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:noNamespaceSchemaLocation="questions.xsd">
@@ -24,7 +26,7 @@
   <quiz id="q003">
     <type>multiple</type>
     <title>Selecciona los navegadores WEB<br/>
-    (<b>mantenga pulsado 'CONTROL' para elegir opciones</b>)</title>
+    (<b>Mantenga pulsado 'CONTROL' para elegir opciones</b>)</title>
       <option>Opera</option>
       <option>LibreOffice</option>
       <option>Adobe PhotoShop</option>
@@ -58,7 +60,7 @@
   <quiz id="q006">
     <type>text</type>
     <title>¿Que extensión tienen los archivos Extensible Markup Language?</title>
-    <answer>xml</answer>
+    <answer>XML</answer>
   </quiz>
 
 <!--Idem que 'q002'-->
@@ -75,7 +77,7 @@
   <quiz id="q008">
     <type>multiple</type>
     <title>Es un dispositivo hardware que forma parte de la infraestructura de una red informática<br/>
-    (<b>mantén pulsado 'CONTROL' para elegir opciones</b>)</title>
+    (<b>Mantenga pulsado 'CONTROL' para elegir opciones</b>)</title>
       <option>Monitor</option>
       <option>Brigde</option>
       <option>Switch</option>
