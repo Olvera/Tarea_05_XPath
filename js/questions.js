@@ -48,7 +48,7 @@ window.onload = function()
 /*Pone a cero contador 'nota'. Comprueba y muestra resultados.*/
 function corrExam()
 {
-  if (comprobar())
+  //if (comprobar())
   {
     corregirText1();
     corregirSelect1();
@@ -420,8 +420,10 @@ function presentarNota()
     xsltProcessor.importStylesheet(xslDoc);
     resultDocument = xsltProcessor.transformToFragment(xmlDoc, document);
     document.body.appendChild(resultDocument);
-  }
+  }  
+  document.getElementById("top").focus();
   darRespuestaHtml("<h2><i>Nota: "+nota+" puntos sobre 10</i></h2>");
+
 }
 
 /*Ponemos datos de tipo 'Select' y 'Select multiple'*/

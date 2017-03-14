@@ -8,14 +8,14 @@
 <style rel="stylesheet" type="text/css">
 html,body{height:auto;padding:0;margin:0 auto;background-color:lightgoldenrodyellow;font-family:Verdana, Geneva,sans-serif;font-size:1em;color:darkblue}
 h2{text-align:center}
-table{width:auto;border:2px solid;border-radius:5px;pading:10px}
+table{width:80%;border:2px solid;border-radius:5px;margin:0 auto;pading:10px}
 th,td{background-color:azure}
 td,tr,th{border:1px solid;border-radius:5px;padding:10px;vertical-align:top}
 span{color:limegreen;padding-left:5px}
 </style>
 </head>
 <body>
-  <h2><i>Corrección</i></h2>
+  <h2 id="top"><i>Corrección</i></h2>
   <table>
     <tr>
       <th><i>Pregunta</i></th>
