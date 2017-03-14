@@ -420,10 +420,9 @@ function presentarNota()
     xsltProcessor.importStylesheet(xslDoc);
     resultDocument = xsltProcessor.transformToFragment(xmlDoc, document);
     document.body.appendChild(resultDocument);
-  }  
-  document.getElementById("top").focus();
+  }
   darRespuestaHtml("<h2><i>Nota: "+nota+" puntos sobre 10</i></h2>");
-
+  document.getElementById("top").focus();
 }
 
 /*Ponemos datos de tipo 'Select' y 'Select multiple'*/
