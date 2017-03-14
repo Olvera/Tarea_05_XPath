@@ -38,10 +38,10 @@
    <quiz id="q004">
       <type>checkbox</type>
       <title>De las siguientes etiquetas HTML, selecciona las que son etiquetas de cierre</title>
-      <option>&amp;lt;head/&amp;gt;</option>
-      <option>&amp;lt;body&amp;gt;</option>
-      <option>&amp;lt;/head&amp;gt;</option>
-      <option>&amp;lt;br/&amp;gt;</option>
+      <option>&lt;head/&gt;</option>
+      <option>&lt;body&gt;</option>
+      <option>&lt;/head&gt;</option>
+      <option>&lt;br/&gt;</option>
       <answer>2</answer>
       <answer>3</answer>
    </quiz>
@@ -101,7 +101,7 @@
    <quiz id="q010">
       <type>radio</type>
       <title>El codigo JavaScript ha de incorporarse, necesariamente, dentro de 
-      &amp;lt;body&amp;gt; o &amp;lt;title&amp;gt; en un documento HTML</title>
+      &lt;body&gt; o &lt;title&gt; en un documento HTML</title>
       <option>Verdadero</option>
       <option>Falso</option>
       <answer>1</answer>
