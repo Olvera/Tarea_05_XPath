@@ -38,10 +38,10 @@
    <quiz id="q004">
       <type>checkbox</type>
       <title>De las siguientes etiquetas HTML, selecciona las que son etiquetas de cierre</title>
-      <option>&lt;head/&gt;</option>
-      <option>&lt;body&gt;</option>
-      <option>&lt;/head&gt;</option>
-      <option>&lt;br/&gt;</option>
+      <option> &lt;head/&gt; </option>
+      <option> &lt;body&gt; </option>
+      <option> &lt;/head&gt; </option>
+      <option> &lt;br/&gt; </option>
       <answer>2</answer>
       <answer>3</answer>
    </quiz>
