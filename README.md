@@ -1,8 +1,8 @@
 # Tarea_05_XPath
-##Tarea 5ª Unidad - LMSGI - 1º ASIX.
-###Acceso a los datos del archivo XML mediante Xpath de examen con autocorrección (HTML, JavaScrip, XML y CSS).
+## Tarea 5ª Unidad - LMSGI - 1º ASIX.
+### Acceso a los datos del archivo XML mediante Xpath de examen con autocorrección (HTML, JavaScrip, XML y CSS).
 
-###Introducción.
+### Introducción.
 
   Cumpliendo con los requisitos de la tarea de esta unidad (UT_5) de la asignatura, partiendo de la **_aplicación web_** de la unidad anterior, se ha modificado el código **_JavaScript_**, de tal manera que el acceso y presentación de los datos contenidos en el archivo **_XML_** (preguntas, respuestas, etc.) se realiza mediante lenguaje **_Xpath_**, es decir, se accede por la **_ruta_** o **_path_** a los distintos elementos que lo componen y aparecen en una página **_HTML_**.
   
@@ -11,7 +11,7 @@
         * Para mayor detalle sobre diseño y estructura del proyecto, ver archivo **_Readme_** 
         del proyecto anterior (Tarea_04_XML_DTD).
 
-###Notas sobre la implementación de código.
+### Notas sobre la implementación de código.
 
    Mediante las instrucciones de Xpath, comenzamos fijando nuestro objetivo adquiriendo, de cada pregunta, las opciones a presentar y seleccionar en la prueba (_var xpath = "/questions/quiz[@id='X']/option"_) incluidas en el XML.
    
@@ -27,7 +27,7 @@
    
    Para la prewsentación de la tabla resultante, se crea un nuevo elemento _XML_: **_useranswer_**. En el se recogen las respuestas o selecciones realizadas por el usuario para presentarlas en una última columna de la tabla de resultados.
    
-###Sobre cambios en el diseño.
+### Sobre cambios en el diseño.
 
   Han sido eliminados, respecto al proyecto base anterior, varios elementos, ahora innecesarios, además de ortros pequeños ajustes para adaptar el código al resultado final requerido. Se han eliminado funciones como **_inicializar_**, ya que la nota final es la única posible, **_cargaCrono_**, puesto que, en lugar de tiempo límite, se establece el final del examen (y la comprobación de resultados) al contestar todas las preguntas.
  
