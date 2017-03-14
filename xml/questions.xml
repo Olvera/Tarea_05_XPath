@@ -1,111 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="questions.xsl"?>
-
 <!--<!DOCTYPE questions SYSTEM "questions.dtd">-->
-<questions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:noNamespaceSchemaLocation="questions.xsd">
-
-<!--Para formulario con campo de texto.-->
-  <quiz id="q001">
-    <type>text</type>
-    <title>¿Con que tipo de archivo (extensión) validamos la estructura, elementos y tipos de un archivo XML?</title>
-    <answer>DTD</answer>
-  </quiz>
-
-<!--Para formulario con campo de seleción desplegable.-->
-  <quiz id="q002">
-    <type>select</type>
-    <title>JavaScript es un lenguaje:</title>
+<questions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="questions.xsd">
+   <!--Para formulario con campo de texto.-->
+   <quiz id="q001">
+      <type>text</type>
+      <title>¿Con que tipo de archivo (extensión) validamos la estructura, elementos y tipos de un archivo XML?</title>
+      <answer>DTD</answer>
+   </quiz>
+   <!--Para formulario con campo de seleción desplegable.-->
+   <quiz id="q002">
+      <type>select</type>
+      <title>JavaScript es un lenguaje:</title>
       <option>Estructurado de consultas</option>
-      <option>Interpretado, orientado a objetos</option> 
+      <option>Interpretado, orientado a objetos</option>
       <option>Llenguaje de bajo nivel</option>
-    <answer>1</answer>
-  </quiz>
-
-<!--Para formulario con campo de selección multiple fijo.-->  
-  <quiz id="q003">
-    <type>multiple</type>
-    <title>Selecciona los navegadores WEB<br/>
-    (<b>Mantenga pulsado 'CONTROL' para elegir opciones</b>)</title>
+      <answer>1</answer>
+   </quiz>
+   <!--Para formulario con campo de selección multiple fijo.-->
+   <quiz id="q003">
+      <type>multiple</type>
+      <title>
+         Selecciona los navegadores WEB
+         <br />
+         (
+         <b>Mantenga pulsado 'CONTROL' para elegir opciones</b>
+         )
+      </title>
       <option>Opera</option>
       <option>LibreOffice</option>
       <option>Adobe PhotoShop</option>
       <option>Chrome</option>
-    <answer>0</answer>
-    <answer>3</answer>
-  </quiz>
-
-<!--Para formulario con campo de selección checkbox.--> 
-  <quiz id="q004">
-    <type>checkbox</type>
-    <title>De las siguientes etiquetas HTML, selecciona las que son etiquetas de cierre</title>
-      <option> &lt;head/&gt; </option>
-      <option> &lt;body&gt; </option>
-      <option> &lt;/head&gt; </option>
-      <option> &lt;br/&gt; </option>
-    <answer>2</answer>
-    <answer>3</answer>
-  </quiz>
-
-<!--Para formulario con campo de selección radio.-->
-  <quiz id="q005">
-    <type>radio</type>
-    <title>Un documento HTML es un documento estructurado con:</title>
+      <answer>0</answer>
+      <answer>3</answer>
+   </quiz>
+   <!--Para formulario con campo de selección checkbox.-->
+   <quiz id="q004">
+      <type>checkbox</type>
+      <title>De las siguientes etiquetas HTML, selecciona las que son etiquetas de cierre</title>
+      <option>&amp;lt;head/&amp;gt;</option>
+      <option>&amp;lt;body&amp;gt;</option>
+      <option>&amp;lt;/head&amp;gt;</option>
+      <option>&amp;lt;br/&amp;gt;</option>
+      <answer>2</answer>
+      <answer>3</answer>
+   </quiz>
+   <!--Para formulario con campo de selección radio.-->
+   <quiz id="q005">
+      <type>radio</type>
+      <title>Un documento HTML es un documento estructurado con:</title>
       <option>Texto plano</option>
       <option>Variables</option>
       <option>Etiquetas</option>
-    <answer>2</answer>
-  </quiz>
- <!--Idem que 'q001'-->
-  <quiz id="q006">
-    <type>text</type>
-    <title>¿Que extensión tienen los archivos Extensible Markup Language?</title>
-    <answer>XML</answer>
-  </quiz>
-
-<!--Idem que 'q002'-->
-  <quiz id="q007">
-    <type>select</type>
-    <title>Java es un lenguaje de programación</title>
+      <answer>2</answer>
+   </quiz>
+   <!--Idem que 'q001'-->
+   <quiz id="q006">
+      <type>text</type>
+      <title>¿Que extensión tienen los archivos Extensible Markup Language?</title>
+      <answer>XML</answer>
+   </quiz>
+   <!--Idem que 'q002'-->
+   <quiz id="q007">
+      <type>select</type>
+      <title>Java es un lenguaje de programación</title>
       <option>Orientado a objetos</option>
-      <option>Estructurado de consultas</option> 
+      <option>Estructurado de consultas</option>
       <option>Llenguaje de bajo nivel</option>
-    <answer>0</answer>
-  </quiz>
-
-<!--Idem que 'q003'-->
-  <quiz id="q008">
-    <type>multiple</type>
-    <title>Es un dispositivo hardware que forma parte de la infraestructura de una red informática<br/>
-    (<b>Mantenga pulsado 'CONTROL' para elegir opciones</b>)</title>
+      <answer>0</answer>
+   </quiz>
+   <!--Idem que 'q003'-->
+   <quiz id="q008">
+      <type>multiple</type>
+      <title>
+         Es un dispositivo hardware que forma parte de la infraestructura de una red informática
+         <br />
+         (
+         <b>Mantenga pulsado 'CONTROL' para elegir opciones</b>
+         )
+      </title>
       <option>Monitor</option>
       <option>Brigde</option>
       <option>Switch</option>
       <option>Altavoz bluetooth</option>
-    <answer>1</answer>
-    <answer>2</answer>
-  </quiz>
-
-<!--Idem que 'q004'-->
-  <quiz id="q009">
-    <type>checkbox</type>
-    <title>Respecto a un ROUTER, selecciona la/s opcion/es correcta/s</title>
+      <answer>1</answer>
+      <answer>2</answer>
+   </quiz>
+   <!--Idem que 'q004'-->
+   <quiz id="q009">
+      <type>checkbox</type>
+      <title>Respecto a un ROUTER, selecciona la/s opcion/es correcta/s</title>
       <option>Divide una red LAN en distintos dominios de colision</option>
       <option>Su funcionamiento es identico al de un switch de capa 2</option>
       <option>Solo trabajan en redes de fibra óptica de alta velocidad</option>
       <option>Es el encargado de interconectar redes locales a una red WAN</option>
-    <answer>0</answer>
-    <answer>3</answer>
-  </quiz>
-
-<!--Idem que 'q005'-->
-  <quiz id="q010">
-    <type>radio</type>
-    <title>El codigo JavaScript ha de incorporarse, necesariamente, dentro de 
-      &lt;body&gt; o &lt;title&gt; en un documento HTML</title>
+      <answer>0</answer>
+      <answer>3</answer>
+   </quiz>
+   <!--Idem que 'q005'-->
+   <quiz id="q010">
+      <type>radio</type>
+      <title>El codigo JavaScript ha de incorporarse, necesariamente, dentro de 
+      &amp;lt;body&amp;gt; o &amp;lt;title&amp;gt; en un documento HTML</title>
       <option>Verdadero</option>
       <option>Falso</option>
-    <answer>1</answer>
-  </quiz>
-
+      <answer>1</answer>
+   </quiz>
 </questions>
