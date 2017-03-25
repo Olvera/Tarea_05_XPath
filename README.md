@@ -1,4 +1,4 @@
-# Tarea_05_XPath
+# Tarea_05_XPath  (códgo minimizado)
 ## Tarea 5ª Unidad - LMSGI - 1º ASIX.
 ### Acceso a los datos del archivo XML mediante Xpath de examen con autocorrección (HTML, JavaScrip, XML y CSS).
 
