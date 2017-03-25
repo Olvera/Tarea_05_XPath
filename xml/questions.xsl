@@ -39,7 +39,7 @@ span{color:limegreen;padding-left:5px}
          <xsl:for-each select="../answer">
           <xsl:variable name="correctanswer" select="text()"/>
           <xsl:if test="$optposition=$correctanswer">
-            <span>&#x270c;</span>
+            <span>&#x2713;</span>
           </xsl:if>
          </xsl:for-each><br/><br/>
        </xsl:for-each>
