@@ -53,13 +53,13 @@ span{color:limegreen;padding-left:5px}
            <xsl:when test="../type = 'text'">
             <xsl:variable name="correctanswertext" select="text()"/>
             <xsl:if test="$useranswers=$correctanswertext">
-              <span>&#x2713;</span>
+              <span>&#x270c;</span>
             </xsl:if>
            </xsl:when>
            <xsl:otherwise>
             <xsl:variable name="correctanswer" select="text()+1"/>
             <xsl:if test="$useranswers=$correctanswer">
-              <span>&#x2713;</span>
+              <span>&#x270c;</span>
             </xsl:if>
            </xsl:otherwise>
           </xsl:choose>
