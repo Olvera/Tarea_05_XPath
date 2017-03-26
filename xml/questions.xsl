@@ -12,6 +12,7 @@ table{width:80%;border:2px solid;border-radius:5px;margin:0 auto;pading:10px}
 th,td{background-color:azure}
 td,tr,th{border:1px solid;border-radius:5px;padding:10px;vertical-align:top}
 span{color:limegreen;padding-left:5px}
+  #red{color:red}
 </style>
 </head>
 <body>
@@ -55,11 +56,17 @@ span{color:limegreen;padding-left:5px}
             <xsl:if test="$useranswers=$correctanswertext">
               <span>&#x270c;</span>
             </xsl:if>
+            <xsl:if test="$useranswers!=$correctanswertext">
+              <span>&#x2718;</span>
+            </xsl:if>
            </xsl:when>
            <xsl:otherwise>
             <xsl:variable name="correctanswer" select="text()+1"/>
             <xsl:if test="$useranswers=$correctanswer">
               <span>&#x270c;</span>
+            </xsl:if>
+            <xsl:if test="$useranswers!=$correctanswer">
+              <span>&#x2718;</span>
             </xsl:if>
            </xsl:otherwise>
           </xsl:choose>
