@@ -57,7 +57,7 @@ span{color:limegreen;padding-left:5px}
               <span>&#x270c;</span>
             </xsl:if>
             <xsl:if test="$useranswers!=$correctanswertext">
-              <span>&#x2718;</span>
+              <span id="red">&#x2718;</span>
             </xsl:if>
            </xsl:when>
            <xsl:otherwise>
@@ -66,7 +66,7 @@ span{color:limegreen;padding-left:5px}
               <span>&#x270c;</span>
             </xsl:if>
             <xsl:if test="$useranswers!=$correctanswer">
-              <span>&#x2718;</span>
+              <span id="red">&#x2718;</span>
             </xsl:if>
            </xsl:otherwise>
           </xsl:choose>
