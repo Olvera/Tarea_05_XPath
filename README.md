@@ -28,7 +28,13 @@
    
    Se ha implementado una función que recoge la entrada de datos/selecciones efectuadas, tal que, si no se efectuan, alerta y solicita que se responda la pregunta que no ha sido contestada.
    
-   Para la prewsentación de la tabla resultante, se crea un nuevo elemento _XML_: **_useranswer_**. En el se recogen las respuestas o selecciones realizadas por el usuario para presentarlas en una última columna de la tabla de resultados.
+   Para la presentación de la tabla resultante, se crea un nuevo elemento _XML_: **_useranswer_**. En el se recogen las respuestas o selecciones realizadas por el usuario para presentarlas en una última columna de la tabla de resultados.
+   
+   En la corrección se han imlementado simbolos gráficos en:
+   
+        * Opciones correctas
+        * Respuestas acertadas
+        * Respuestas equivocadas
    
 ### Sobre cambios en el diseño.
 
