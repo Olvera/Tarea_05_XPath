@@ -12,6 +12,7 @@ table{width:80%;border:2px solid;border-radius:5px;margin:0 auto;pading:10px}
 th,td{background-color:azure}
 td,tr,th{border:1px solid;border-radius:5px;padding:10px;vertical-align:top}
 span{color:limegreen;padding-left:5px}
+  #red{color:red}
 </style>
 </head>
 <body>
@@ -56,7 +57,7 @@ span{color:limegreen;padding-left:5px}
               <span>&#x270c;</span>
             </xsl:if>
             <xsl:if test="$useranswers!=$correctanswertext">
-              <span color="red">&#x2718;</span>
+              <span id="red">&#x2718;</span>
             </xsl:if>
            </xsl:when>
            <xsl:otherwise>
