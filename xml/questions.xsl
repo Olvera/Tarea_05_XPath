@@ -56,9 +56,9 @@ span{color:limegreen;padding-left:5px}
             <xsl:if test="$useranswers=$correctanswertext">
               <span>&#x270c;</span>
             </xsl:if>
-            <xsl:if test="$useranswers!=$correctanswertext">
+            <xsl:else test="$useranswers!=$correctanswertext">
               <span id="red">&#x2718;</span>
-            </xsl:if>
+            </xsl:else>
            </xsl:when>
            <xsl:otherwise>
             <xsl:variable name="correctanswer" select="text()+1"/>
