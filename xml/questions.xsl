@@ -65,10 +65,10 @@ span{color:limegreen;padding-left:5px}
             <xsl:if test="$useranswers=$correctanswer">
               <span>&#x270c;</span>
             </xsl:if>
-           </xsl:otherwise>
-            <xsl:if test="$useranswers!=$correctanswer">
+            <xsl:else test="$useranswers!=$correctanswer">
               <span id="red">&#x2718;</span>
-            </xsl:if>
+            </xsl:else>
+           </xsl:otherwise>
           </xsl:choose>
          </xsl:for-each><br/><br/>
        </xsl:for-each>       
