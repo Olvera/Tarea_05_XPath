@@ -49,25 +49,25 @@ span{color:limegreen;padding-left:5px}
        <xsl:for-each select="useranswer">
         <xsl:variable name="useranswers" select="text()"/>
         <xsl:value-of select="text()"/>
-        <xsl:for-each select="../answer">
+         <xsl:for-each select="../answer">
           <xsl:choose>
            <xsl:when test="../type = 'text'">
             <xsl:variable name="correctanswertext" select="text()"/>
             <xsl:if test="$useranswers=$correctanswertext">
               <span>&#x270c;</span>
             </xsl:if>
-            <xsl:else test="$useranswers!=$correctanswertext">
-              <span id="red">&#x2718;</span>
-            </xsl:else>
+<!--            <xsl:if test="$useranswers!=$correctanswertext">  ESTA CORRECIÓN FUNCIONA PARA TEXT Y SELECT: MARCA INCORRECTAS CON X EN ROJO
+              <span id="red">&#x2718;</span>                      
+            </xsl:if>                                   -->
            </xsl:when>
            <xsl:otherwise>
             <xsl:variable name="correctanswer" select="text()+1"/>
             <xsl:if test="$useranswers=$correctanswer">
               <span>&#x270c;</span>
             </xsl:if>
-            <xsl:else test="$useranswers!=$correctanswer">
+<!--            <xsl:if test="$useranswers!=$correctanswer">       ESTA CORRECIÓN NO FUNCIONA PARA CHECKBOX Y SELECT MÚLTIPLE: ITERA LAS MARCAS
               <span id="red">&#x2718;</span>
-            </xsl:else>
+            </xsl:if>                                   -->
            </xsl:otherwise>
           </xsl:choose>
          </xsl:for-each><br/><br/>
